@@ -11,7 +11,7 @@ gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -51,3 +51,30 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# 画像投稿用のgem
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+# 画像加工用のgem
+gem 'refile-mini_magick'
+# bootstrapの導入
+gem 'bootstrap', '~> 4.5'
+# jquery インクリメンタルサーチ
+gem 'font-awesome-sass', '~> 5.13'
+gem 'jquery-rails'
+# deviseの導入
+gem 'devise'
+# ページネーションの追加
+gem 'kaminari', '~> 1.2.1'
+# 日本語化のgem
+gem 'rails-i18n'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+# デバッグ
+gem 'pry-byebug'
+gem 'pry-rails'
+
+gem 'turbolinks', '~> 5'
+# 環境変数化のためのgem
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
