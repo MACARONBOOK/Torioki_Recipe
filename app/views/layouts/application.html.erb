@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Okazu</title>
+    <title>Torioki_Recipe</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
+    <!--CSSを読み込む-->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!--javascriptを読み込む-->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!--FontAwesomeを読み込む-->
+    <script src="https://kit.fontawesome.com/f03fd448b3.js" crossorigin="anonymous"></script>
+
+    <!--Fontを読み込む-->
+
   </head>
 
   <body>
-    <%= yield %>
+    <div id="container">
+      <div class="nav-trigger"></div>
+        <%= render 'shared/header' %>
+          <div class="main-top">
+          <%= yield %>
+        <%= render 'shared/footer' %>
+      </div>
+    </div>
   </body>
 </html>
