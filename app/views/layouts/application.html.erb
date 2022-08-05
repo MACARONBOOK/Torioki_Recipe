@@ -2,7 +2,9 @@
 <html>
   <head>
     <title>Torioki_Recipe</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
     <!--CSSを読み込む-->
@@ -23,7 +25,7 @@
         <%= render 'public/shared/header' %>
           <div class="main-top">
           <%= yield %>
-        <%= render 'shared/footer' %>
+        <%= render 'public/shared/footer' %>
       </div>
     </div>
   </body>

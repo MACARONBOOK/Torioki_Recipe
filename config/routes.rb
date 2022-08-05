@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :admins, controllers: {
-    sessions:      "admins/sessions",
-    passwords:     "admins/passwords",
-    registrations: "admins/registrations"
+    sessions:      "admin/sessions",
+    passwords:     "admin/passwords",
+    registrations: "admin/registrations"
 }
 
   devise_for :users, controllers: {
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+    root to: 'users#index'
     resources :users, except: [:new, :create]
   end
 
