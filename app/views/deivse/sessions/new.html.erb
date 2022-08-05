@@ -1,6 +1,9 @@
 <h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_with model: @user, url: new_user_session_path, local: true do |f| %>
+
+<%= render "devise/shared/error_messages", resource: resource %>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -23,4 +26,4 @@
   </div>
 <% end %>
 
-<%= render "publics/shared/links" %>
+<%= render "devise/shared/links" %>
