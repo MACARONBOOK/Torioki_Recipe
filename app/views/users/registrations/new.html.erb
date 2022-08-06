@@ -1,7 +1,8 @@
 <div class=container>
-  <div class="text-center">
-    <div class="title">新規登録</div>
-  </div>
+  <div class='row justify-content-center mx-auto'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+    <h2>新規登録</h2>
+
 <%= form_with model: @user, url: user_registration_path, id:"new_user", local: true do |f| %>
 
   <%= render "layouts/error_messages", resource: resource %>
@@ -29,12 +30,12 @@
     <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
   </div>
 
-  <div class="field">
+  <div class="field mb-2">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード（確認用）" %>
   </div>
 
-  <div class="actions">
+  <div class="actions mb-2">
     <%= f.submit "登録する" ,class: "btn btn-success w-25" %>
   </div>
 <% end %>

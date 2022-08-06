@@ -1,8 +1,14 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  before_action :reject_inactive_user, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to posts_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
   # GET /resource/sign_in
   # def new
   #   super
@@ -24,4 +30,13 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  def reject_inactive_user
+    @user = User.find_by(email: params[:user][:email])
+    if @user
+      if @user.valid_password?(params[:user][:password]) && !@user.is_valid
+        redirect_to new_user_session_path, alert: "退会済のためログインできません。"
+      end
+    end
+  end
 end
