@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(version: 2022_08_06_073627) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name"
-    t.string "nickname"
+    t.string "name", default: "", null: false
+    t.string "nickname", default: "", null: false
     t.string "profile_image_id"
-    t.string "introduction"
+    t.string "introduction", default: "", null: false
     t.boolean "is_valid", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
