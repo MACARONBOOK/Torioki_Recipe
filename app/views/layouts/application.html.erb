@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <title>Torioki_Recipe</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--CSSを読み込む-->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,18 +12,31 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!--FontAwesomeを読み込む-->
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <!--<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">-->
+    <script src="https://kit.fontawesome.com/f03fd448b3.js" crossorigin="anonymous"></script>
 
     <!--Fontを読み込む-->
-
+    <style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');</style>
   </head>
 
   <body>
     <div id="container">
       <div class="nav-trigger"></div>
         <%= render 'public/shared/header' %>
+
+          <div class = "notifications">
+            <% if flash[:notice] %>
+              <p class = "notice"><%= flash[:notice] %></p>
+            <% elsif flash[:alert] %>
+              <p class = "alert"><%= flash[:alert] %></p>
+            <% else %>
+            <% end %>
+          </div>
+
           <div class="main-top">
+        <main>
           <%= yield %>
+        </main>
         <%= render 'public/shared/footer' %>
       </div>
     </div>

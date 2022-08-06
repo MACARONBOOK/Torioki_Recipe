@@ -81,6 +81,6 @@ gem 'pry-rails'
 gem 'dotenv-rails'
 
 # メイラー機能使う場合
-# gem "net-smtp"
-# gem "net-pop"
-# gem "net-imap"
+gem "net-smtp"
+gem "net-pop"
+gem "net-imap"

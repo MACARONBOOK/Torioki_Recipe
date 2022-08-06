@@ -13,8 +13,9 @@
  *= require_tree .
  *= require_self
  */
-@import '~bootstrap/scss/bootstrap';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 
 // リセットCSS
@@ -26,6 +27,6 @@
 
 
 body {
-  background-image: image-url("hoge.jpg");
-
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  font-family: 'Roboto', sans-serif;
 }
