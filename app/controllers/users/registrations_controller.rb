@@ -3,21 +3,14 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :ensure_normal_user, only: %i(update destroy)
 
   def new
-    super
     @user = User.new
   end
 
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      flash[:notice] = "ユーザー登録に成功しました。"
-      redirect_to new_user_session_path
-    else
-      flash[:alert] = "ユーザー登録に失敗しました。"
-      render action: :new and return
-    end
+  def after_sign_up_path
+    user_path
   end
   # GET /resource/sign_up
   # def new
@@ -54,15 +47,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
-    # アカウント編集後、プロフィール画面に移動する
-    def after_update_path_for(resource)
-      user_path(id: current_user.id)
-    end
 
-  private
-    def user_params
-      params.require(:user).permit(:name, :nickname, :email, :password, :password_confirmation)
-    end
+  def ensure_normal_user
+    redirect_to root_path, alert: 'ゲストユーザーの更新・削除はできません。' if resource.email == 'guest_user@example.com'
+  end
+
+    # アカウント編集後、プロフィール画面に移動する
+    # def after_update_path_for(resource)
+    #   user_path(id: current_user.id)
+    # end
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])

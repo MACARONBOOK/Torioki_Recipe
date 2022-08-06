@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'users#index'
+    get '/users/index' => "users#index"
     resources :users, except: [:new, :create]
   end
 
