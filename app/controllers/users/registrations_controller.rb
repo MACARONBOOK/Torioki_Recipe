@@ -9,8 +9,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
-  def after_sign_up_path
-    user_path
+  def after_sign_up_path(resource)
+    user_path(currente_user)
   end
   # GET /resource/sign_up
   # def new

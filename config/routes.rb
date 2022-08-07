@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :admins, controllers: {
+  devise_for :admins, skip: [:passwords], controllers: {
     sessions:      "admin/sessions",
-    passwords:     "admin/passwords",
     registrations: "admin/registrations"
 }
 
-  devise_for :users, controllers: {
+  devise_for :users, skip: [:passwords], controllers: {
     sessions:      "users/sessions",
-    passwords:     "users/passwords",
     registrations: "users/registrations"
 }
 
@@ -25,6 +23,7 @@ Rails.application.routes.draw do
     get '/about' => "homes#about"
     get "/search" => "homes#search"
 
+    get "unsubscribe/:name" => "homes#unsubscribe", as: "confirm_unsubscribe"
     patch ":id/withdraw/:name" => "homes#withdraw", as: "withdraw_user"
     put "withdraw/:name" => "users#withdraw"
 
@@ -38,8 +37,8 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    root to: 'users#index'
-    get '/users/index' => "users#index"
+    root to: 'admin/users#index'
+    get '/users/index' => "admin/users#index"
     resources :users, except: [:new, :create]
   end
 

@@ -12,6 +12,10 @@ class User < ApplicationRecord
 
   has_one_attached :image
 
+  def get_image
+    (image.attached?) ? profile_image : 'no_image.jpg'
+  end
+
   # バリデーション
   validates :name,
             presence: true,

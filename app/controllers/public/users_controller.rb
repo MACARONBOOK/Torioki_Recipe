@@ -10,18 +10,22 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
+    # redirect_to request.referer if current_user.id == User.guest.id
   end
 
-  def confirm
+  def update
+    if @user.update(user_params)
+      redirect_to user_path(@user.id)
+    else
+      render :edit
+    end
   end
 
-  def withdraw
-  end
 
   private
 
   def user_params
-    params.require(:user).permit(:profile_image, :name, :nickname, :introduction, :email, :password, :is_valid)
+    params.require(:user).permit(:profile_image, :name, :nickname, :introduction)
   end
 
   def set_user
