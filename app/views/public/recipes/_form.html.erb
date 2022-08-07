@@ -1,0 +1,60 @@
+<%= render 'public/shared/flash' %>
+<main>
+  <h3>レシピの投稿フォーム</h3>
+  <%= form_with(model: @recipe, local: true) do |f| %>
+  <%= f.hidden_field :image %>
+  <section class="introduction">
+    <div class="introductionn__inner">
+      <div class="introduction__img-field">
+        <div class="cooking-title">写真</div>
+          <label class="img-file">
+            <%= image_tag 'add_a_photo', class:"add-photo-btn"%>
+            <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "image" %>
+          </label>
+
+      </div>
+      <div class="introduction__texts">
+        <div class="cooking-title">レシピについて</div>
+        <div class="introduction__inputBx">
+          <%= f.text_field :title, placeholder: "レシピ名(50文字以内)", class: "form-control", size:"80%" %><br>
+          <%= f.text_area :introdution, placeholder: "レシピの説明(140字以内)", class: "form-control", size:"80%" %>
+        </div>
+        <div class="cooking-title">材料・分量</div>
+        <div class="material__inputBx">
+          <%=text_field :material, placeholder: "材料・分量(200文字以内)", class: "form-control" %>
+          <% %>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="cooking-title">関連タグ</div>
+  <section class="tag">
+    <%# 存在するタグの数だけチェックボックスを追加するメソッドを使用 %>
+    <div class="tag__container">
+      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+        <%= tag.label class: 'tag__item' do %>
+          <%= tag.check_box class: 'tag__checkbox' %>
+          <%= tag.text %>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+
+  <div class="cooking-title">作り方</div>
+  <div class="flow__inputBx">
+    <%=text_field :flow, placeholder: "作り方・手順(100文字以内)", class: "form-control" %>
+    <% %>
+  </div>
+
+
+  <div class="cooking-title">コツ・ポイント</div>
+  <div class="advise__inputBx">
+    <%=text_field :advise, placeholder: "コツ・ポイント(100文字以内)", class: "form-control" %>
+    <% %>
+  </div>
+
+  <div class="submit"><%= f.button "作成完了する" , class:"btn slide-bg"%></div>
+  <% end %>
+</main>

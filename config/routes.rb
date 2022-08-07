@@ -29,10 +29,20 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show, :index, :edit, :update] do
       member do
-          get :following, :followers
+          get :following, :followers, :bookmarks
       end
     end
     resource :relationships, only: [:create, :destroy]
+
+    resources :recipes
+    resources :recipes do
+      resources :comments, only: [:create, :destroy]
+      resource :bookmarks, only: [:create, :destroy]
+    end
+
+
+
+
   end
 
 
