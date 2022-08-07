@@ -1,0 +1,10 @@
+<div class="nested-fields">
+  <%= f.hidden_field :_destroy %>
+  <div class="material__inputBx">
+    <%= f.text_field :content, placeholder: "材料", class:"material__content"%>
+    <%= f.text_field :amount, placeholder: "分量", class:"material__quantity" %>
+    <%= link_to '#' , class: "remove-field-btn" do %>
+      <%= image_tag 'delete', class: "js-remove_fields" %>
+    <% end %>
+  </div>
+</div>

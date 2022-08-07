@@ -51,17 +51,18 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+# 本番環境で必要なgem
+group :production do
+  gem 'mysql2'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # 画像投稿用のgem
-gem 'refile', require: 'refile/rails', github: 'manfe/refile'
-# 画像加工用のgem
-gem 'refile-mini_magick'
+gem 'image_processing', '~> 1.2'
 # bootstrapの導入
 gem 'bootstrap', '~> 4.5'
-# jquery インクリメンタルサーチ
 gem 'font-awesome-sass', '~> 5.13'
-gem 'jquery-rails'
 # deviseの導入
 gem 'devise'
 # ページネーションの追加
@@ -74,9 +75,10 @@ gem 'devise-i18n-views'
 gem 'pry-byebug'
 gem 'pry-rails'
 
-gem 'turbolinks', '~> 5'
 # 環境変数化のためのgem
 gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
+
+# メイラー機能使う場合
+gem "net-smtp"
+gem "net-pop"
+gem "net-imap"
