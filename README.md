@@ -35,7 +35,7 @@ Torioki_Recipeは料理のレシピを通してお気に入りの料理やノウ
 |2|管理者機能|devise|
 |3|会員機能|deivse|
 |4|退会機能||
-|5|画像投稿/処理|ImageMagick|
+|5|画像投稿/処理|ActiveStorage/ImageMagick|
 |6|デバッグ|pry-byebug,pry-rails|
 
 ## サイトを見やすくする機能
@@ -58,7 +58,7 @@ Torioki_Recipeは料理のレシピを通してお気に入りの料理やノウ
 ## 設計書
 - [ER図](https://app.diagrams.net/#G19IT4eb-ODjpnKxVwaQqhCoQIzikn0yAO)
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1_RG8K9y7yeDuKJj9YIw1XFF6M2Hqrjxr1tLJaWPnFFk/edit#gid=1373217982)
-- アプリケーション詳細設計()
+- [アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1lDUJL8e82KvzuksykRMzJr56p5FeuLPuo7mrQIVGZZw/edit#gid=868872552)
 
 ## 開発環境
 - OS: Linux(CentOS)
@@ -72,4 +72,5 @@ Torioki_Recipeは料理のレシピを通してお気に入りの料理やノウ
 - Nginx、Puma
 
 ## 使用素材
-- 使用検討中です。
+- [pexel](https://www.pexels.com/ja-jp/)
+- [canva](https://www.canva.com/)
