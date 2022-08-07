@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'bookmarks/show'
+  end
   devise_for :admins, skip: [:passwords], controllers: {
     sessions:      "admin/sessions",
     registrations: "admin/registrations"
@@ -39,9 +42,6 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
       resource :bookmarks, only: [:create, :destroy]
     end
-
-
-
 
   end
 
