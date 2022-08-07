@@ -28,6 +28,7 @@ class Public::RecipesController < ApplicationController
 
   def edit
     @title = "#{@recipe.title}の編集"
+    @tag_list = @post.tags.pluck(:name).join(',')
     if @recipe.user == current_user
       render "edit"
     else
@@ -38,7 +39,9 @@ class Public::RecipesController < ApplicationController
   def create
      recipe = current_user.recipes.new(recipe_params)
 
-    if recipe.save
+    if @recipe.save
+      tag_list = params[:recipe][:name].split(',')
+      @post.save_tag(tag_list)
       redirect_to recipe, flash: { notice: "「#{recipe.title}」のレシピを投稿しました。" }
     else
       redirect_to new_recipe_path, flash: {
@@ -49,8 +52,11 @@ class Public::RecipesController < ApplicationController
   end
 
   def update
+    # 入力されたタグを受け取る
+    tag_list = params[:recipe][:name].split(',')
     @recipe.update(recipe_params)
     if @recipe.save
+      @recipe.save_tag(tag_list)
       redirect_to @recipe, flash: { notice: "「#{@recipe.title}」のレシピを更新しました。" }
     else
       flash[:recipe] = @recipe
@@ -74,6 +80,6 @@ class Public::RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :introduction, :image, :material, :amount, :flow, :advise, :tags_attributes [:tag_name])
+    params.require(:recipe).permit(:image, :title, :introduction,:user_id, :material, :flow, :advise, :tags_attributes [:id, :tag_name])
   end
 end
