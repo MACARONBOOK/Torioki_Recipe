@@ -80,6 +80,6 @@ class Public::RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:image, :title, :introduction,:user_id, :material, :flow, :advise, :tags_attributes [:id, :tag_name])
+    params.require(:recipe).permit(:image, :title, :introduction, :user_id, :material, :flow, :advise, :tags_attributes [:id, :tag_name])
   end
 end

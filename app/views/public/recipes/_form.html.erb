@@ -24,10 +24,10 @@
           <%= f.text_area :material, placeholder: "材料・分量(200文字以内)", class: "form-control" %>
           <% %>
         </div>
-
       </div>
     </div>
   </section>
+  <% end %>
 
   <div class="cooking-title mt-2">関連タグ</div>
   <%= form_with(model: @tag, local: true) do |f| %>
@@ -39,6 +39,7 @@
   </section>
   <% end %>
 
+   <%= form_with(model: @recipe, local: true) do |f| %>
   <div class="cooking-title mt-2">作り方</div>
   <div class="flow__inputBx">
     <%= f.text_area :flow, placeholder: "作り方・手順(100文字以内)", class: "form-control", size:"80%"%>

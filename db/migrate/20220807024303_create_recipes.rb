@@ -1,8 +1,8 @@
 class CreateRecipes < ActiveRecord::Migration[6.1]
   def change
     create_table :recipes do |t|
-      t.references :tag, foreign_key: true
-      t.references :user, foreign_key: true
+      t.bigint :user_id, null: false
+      t.string :image
       t.string :title, null: false, default: ""
       t.text :introduction, null: false, default: ""
       t.string :material, null: false, default: ""
@@ -12,7 +12,6 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :recipes, :id,                   unique: true
     add_index :users, :id,                   unique: true
   end
 end

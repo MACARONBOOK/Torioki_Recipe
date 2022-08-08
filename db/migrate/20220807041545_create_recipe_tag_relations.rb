@@ -6,5 +6,7 @@ class CreateRecipeTagRelations < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :recipes, :id,                   unique: true
+    add_index :tags, :id,                   unique: true
   end
 end
