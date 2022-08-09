@@ -37,11 +37,11 @@ class Public::RecipesController < ApplicationController
   end
 
   def create
-     recipe = current_user.recipes.new(recipe_params)
+    @recipe = current_user.recipes.new(recipe_params)
 
     if @recipe.save
       tag_list = params[:recipe][:name].split(',')
-      @post.save_tag(tag_list)
+      @recipe.save_tag(tag_list)
       redirect_to recipe, flash: { notice: "「#{recipe.title}」のレシピを投稿しました。" }
     else
       redirect_to new_recipe_path, flash: {

@@ -1,0 +1,2 @@
+$(".bookmark_button_<%= @recipe.id %>").html("<%= j(render "public/bookmarks/bookmark", recipe: @recipe) %>");
+$(".bookmark_count").html('<%= @recipe.bookmarks.count %>件');
