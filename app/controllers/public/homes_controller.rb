@@ -1,6 +1,11 @@
 class Public::HomesController < ApplicationController
 
   def top
+    if user_signed_in?
+      @recipes = Recipe.includes([:bookmarks], [:user]).page(params[:page]).limit(3)
+    else
+      @recipes = Recipe.includes([:user]).page(params[:page]).limit(3)
+    end
   end
 
   def search

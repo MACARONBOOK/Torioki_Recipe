@@ -11,7 +11,7 @@ class Recipe < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50}
   validates :introduction, presence: true, length: { maximum: 140}
   validates :material, presence: true, length: { minimum: 5, maximum: 200}
-  validates :amount, presence: true
+  # validates :amount, presence: true
   validates :flow, presence: true, length: {maximum: 200}
   validates :advise, presence: true, length: { maximum: 100}
 

@@ -4,6 +4,7 @@ class Public::UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
+    @users = User.includes(:recipes).page(params[:page]).per(6).order(id: :ASC)
   end
 
   def show
@@ -12,9 +13,18 @@ class Public::UsersController < ApplicationController
 
   def edit
     # redirect_to request.referer if current_user.id == User.guest.id
+    if @user == current_user
+        render 'edit'
+    else
+        redirect_to user_path(@user), alert: '本人のみ編集可能です。'
+    end
   end
 
   def update
+#   順番を変えた
+    @user.image.attach(account_update_params[:image])
+    yield @user if block_given?
+
     if @user.update(user_params)
       redirect_to user_path(@user.id)
     else
@@ -35,7 +45,7 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:profile_image, :name, :nickname, :introduction)
+    params.require(:user).permit(:image, :name, :nickname, :introduction)
   end
 
   def set_user
