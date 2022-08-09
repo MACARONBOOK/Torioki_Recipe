@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 2022_08_07_141406) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.integer "tag_id"
-    t.integer "user_id"
+    t.bigint "user_id", null: false
+    t.string "image"
     t.string "title", default: "", null: false
     t.text "introduction", default: "", null: false
     t.string "material", default: "", null: false
@@ -93,8 +93,6 @@ ActiveRecord::Schema.define(version: 2022_08_07_141406) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["id"], name: "index_recipes_on_id", unique: true
-    t.index ["tag_id"], name: "index_recipes_on_tag_id"
-    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -109,6 +107,7 @@ ActiveRecord::Schema.define(version: 2022_08_07_141406) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["id"], name: "index_tags_on_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -137,6 +136,4 @@ ActiveRecord::Schema.define(version: 2022_08_07_141406) do
   add_foreign_key "comments", "users"
   add_foreign_key "recipe_tag_relations", "recipes"
   add_foreign_key "recipe_tag_relations", "tags"
-  add_foreign_key "recipes", "tags"
-  add_foreign_key "recipes", "users"
 end

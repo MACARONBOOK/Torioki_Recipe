@@ -9,12 +9,36 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_recipes, through: :bookmarks, source: :recipe
   has_many :comments, dependent: :destroy
+  has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship",  dependent: :destroy
+  has_many :following, through: :following_relationships
+  has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
+  has_many :followers, through: :follower_relationships
 
-  has_one_attached :image
-
-  def get_image
-    (image.attached?) ? profile_image : 'no_image.jpg'
+  # フォローするときのメソッド
+  def follow(user)
+    following_relationships.create!(following_id: user.id)
   end
+
+  # フォローを外すメソッド
+  def unfollow(user)
+    following_relationships.find_by(following_id: user.id).destroy
+  end
+
+  # 既にフォロー済かどうか確認するメソッド
+  def following?(user)
+    following_relationships.find_by(following_id: user.id)
+  end
+
+  # プロフィール画像
+  has_one_attached :image
+   def get_image
+    # (image.attached?) ? image : 'no_image.jpg'
+    unless image.attached?
+      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    image
+   end
 
   # バリデーション
   validates :name,

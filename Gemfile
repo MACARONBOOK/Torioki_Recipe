@@ -60,6 +60,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # 画像投稿用のgem
 gem 'image_processing', '~> 1.2'
+gem 'mini_magick'
 # bootstrapの導入
 gem 'bootstrap', '~> 4.5'
 gem 'font-awesome-sass', '~> 5.13'
