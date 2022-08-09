@@ -39,24 +39,24 @@ class Public::RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.new(recipe_params)
 
-    if @recipe.save
-      tag_list = params[:recipe][:name].split(',')
-      @recipe.save_tag(tag_list)
-      redirect_to recipe, flash: { notice: "「#{recipe.title}」のレシピを投稿しました。" }
+    if @recipe.save!
+      tag_list = params[:recipe][:tag_name].split(',')
+      @recipe.save_tags(tag_list)
+      redirect_to recipe_path(@recipe), flash: { notice: "「#{@recipe.title}」のレシピを投稿しました。" }
     else
       redirect_to new_recipe_path, flash: {
-        recipe: recipe,
-        error_messages: recipe.errors.full_messages
+        recipe: @recipe,
+        error_messages: @recipe.errors.full_messages
       }
     end
   end
 
   def update
     # 入力されたタグを受け取る
-    tag_list = params[:recipe][:name].split(',')
+    tag_list = params[:recipe][:tag_name].split(',')
     @recipe.update(recipe_params)
     if @recipe.save
-      @recipe.save_tag(tag_list)
+      @recipe.save_tags(tag_list)
       redirect_to @recipe, flash: { notice: "「#{@recipe.title}」のレシピを更新しました。" }
     else
       flash[:recipe] = @recipe
@@ -76,10 +76,10 @@ class Public::RecipesController < ApplicationController
   private
 
   def set_recipe
-    @recipe = Recipe.include(:tags).find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def recipe_params
-    params.require(:recipe).permit(:image, :title, :introduction, :user_id, :material, :flow, :advise, :tags_attributes [:id, :tag_name])
+    params.require(:recipe).permit( :title, :introduction, :user_id, :material, :flow, :advise, images: [])
   end
 end
