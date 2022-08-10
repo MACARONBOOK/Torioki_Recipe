@@ -6,6 +6,7 @@ class Recipe < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
 
   has_many_attached :images
+  # mount_uploader :images, RecipeImageUploader
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 50}

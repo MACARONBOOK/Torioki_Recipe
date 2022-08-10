@@ -75,6 +75,10 @@ class Public::RecipesController < ApplicationController
 
   private
 
+  def image
+    @recipes = Recipe.where(user_id: current_user.id).where.not(image: nil)
+  end
+
   def set_recipe
     @recipe = Recipe.find(params[:id])
   end
