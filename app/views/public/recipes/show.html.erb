@@ -1,36 +1,44 @@
 <%= render 'public/shared/flash' %>
 <main>
   <div class = "container">
-    <div class = "title text-center"></div>
-      <div class = "row ">
-      <div class = "col-8 ml-3">
+    <div class = "cooking-title">
+      <h3>レシピの詳細</h3>
+    </div>
+      <div class = "row ml-5">
+      <div class = "col-10 ml-5">
         <div class="introduction__img-field">
-          <div class="introduction__img">
-            <%#= image_tag @recipe.images.url , size:'100x100' %>
+          <div class="my-1">
+            <% @recipe.images.each do |image|%>
+            <%= image_tag image , size:'150x150',class:"card-icon" %>
+            <% end %>
           </div>
         </div>
 
         <div class="introduction__texts">
-          <div class="introduction__title">
-            <strong><p>レシピ名：<%= @recipe.title %></p></strong>
+          <div class="text-center detail-font">
+            <p>レシピ名：<%= @recipe.title %></p>
             <div class="introduction__detail">
             <p><%= @recipe.introduction %></p>
             </div>
+          </div>
+          <div class  = "text-muted recipe-header">
+            <%= link_to @recipe.user.nickname, user_path(@recipe.user.id), class: "link text-muted"%>さんが
+            <%= @recipe.user.created_at.strftime("%Y年%m月%d日") %>に投稿
           </div>
           <div id="recipe_<%= @recipe.id %>">
             <%= render "public/bookmarks/bookmark", recipe: @recipe %>
           </div>
         </div>
 
-          <div class="recipeuser mt-3">
+          <div class="recipeuser py-2">
             <div class="cooking-title">ユーザープロフィール</div>
             <div class="recipeuser__inner">
-              <div class="my-1">
+              <div class="recipeuser__img">
                 <%= link_to user_path(id: @recipe.user_id) do %>
                   <%= image_tag @recipe.user.image, size:'150x150', class: "rounded-circle" %>
                 <% end %>
-              </div>
-              <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"recipeuser__name" %>
+              </div class="recipeuser__edit">
+              <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"recipeuser__name" %><br>
               <% if user_signed_in? && @recipe.user == current_user %>
                 <%= link_to 'レシピ編集', edit_recipe_path, class:"btn recipe-edit-btn" %>
               <% end %>
@@ -40,15 +48,18 @@
         </div>
         </div>
 
-        <div class = "col-9 ml-3">
+        <div class = "row ml-5">
+        <div class = "col-10 ml-5">
             <div class = "recipe-text rounded-lg border-dark">
                 <div class="cooking-title">材料</div>
                 <div class="material__ul">
+                  <p></p>
                   <div><%= @recipe.material %></div>
                 </div>
 
                 <div class="cooking-title mt-3">関連タグ</div>
                   <div class="tag__container">
+                    <p></p>
                     <% if @recipe.tags.empty? %>
                       <p class="tag__none">関連タグが設定されていません</p>
                     <% else %>
@@ -56,6 +67,7 @@
                         <%= render_with_tags(tag.name, tag.id) %>
                       <% end %>
                     <% end %>
+                    <p></p>
                   </div>
             </div>
 
@@ -63,10 +75,12 @@
                 <div class="step__item">
                     <div class="step__content">
                       <p class="step__number"></p>
+                      <p></p>
                       <p class="step__description"><%= @recipe.flow %></p>
                     </div>
                 </div>
               </div>
+        </div>
 
               <div class = "d-flex float-right">
                   <%= render "public/recipes/rate", score: @recipe.avg_score %>
@@ -85,6 +99,7 @@
               </div>
             </div>
         </div>
+
   </div>
 
 </main>

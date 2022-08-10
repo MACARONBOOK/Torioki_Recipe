@@ -40,8 +40,11 @@ Rails.application.routes.draw do
     resources :recipes
     resources :recipes do
       resources :comments, only: [:create, :destroy]
-      resource :bookmarks, only: [:create, :destroy]
+      resource :bookmarks, only: [:show, :create, :destroy]
     end
+
+    get 'recipes/tag/:name', to: "recipes#tag_search"
+    get 'recipes/search', to: 'recipes#search'
 
   end
 

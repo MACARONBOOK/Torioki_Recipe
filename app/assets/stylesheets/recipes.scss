@@ -1,3 +1,62 @@
 // Place all the styles related to the recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* h3見出しのフォント指定 */
+h3 {
+font-family: cursive ;
+}
+
+body {
+color: #270000 ;
+ justify-content: space-between;
+}
+
+.row {
+  text-align: center;
+  align-items: center;
+}
+
+.cooking-title {
+  color: white;
+  text-align: center;
+  align-items: center;
+  background-color: #BDB76B;
+}
+
+.recipe-header {
+  text-align: center;
+}
+
+.introduction__img-field {
+  text-align: center;
+  height: 150px;
+}
+
+.recipeuser__inner {
+  width: 100% ;
+    display: flex;
+    align-items: center;
+
+    & > .btn {
+      display: block;
+      margin: 0 0 0 auto;
+    }
+  }
+
+.recipeuser__img {
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+
+    & a > img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+.recipeuser__name {
+  text-align: center;
+  align-items: center;
+}

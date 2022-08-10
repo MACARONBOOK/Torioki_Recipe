@@ -1,7 +1,11 @@
 <div class="list__container">
   <% @recipes.each do |recipe| %>
-    <div class="list__item">
-      <%= link_to image_tag(recipe.image.url), recipe_path(recipe), class: "list__img" %>
+    <div class="list__item mb-4">
+      <% if recipe.images.any? %>
+      <%= link_to  recipe_path(recipe) , class: "list__img" do  %>
+        <%= image_tag recipe.images[0] %>
+      <% end %>
+      <% end %>
       <div class="list__detail">
         <span class="timestamp"><%= recipe.created_at.to_s(:datetime_jp) %></span><br>
         <%= link_to recipe.title, recipe_path(recipe), class: 'list__recipetitle' %>
@@ -9,7 +13,7 @@
       </div>
       <div class="list__info">
         <div id="recipe_<%= recipe.id %>">
-          <%#= render partial: "recipes/bookmark", locals: { recipe: recipe } %>
+          <%= render "public/recipes/bookmark", recipe: recipe %>
         </div>
         <%= link_to recipe.user.name, user_path(id: recipe.user_id), class: "list__user-name" %>
       </div>
