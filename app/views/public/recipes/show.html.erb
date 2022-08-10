@@ -1,94 +1,90 @@
 <%= render 'public/shared/flash' %>
 <main>
-  <section class="introduction">
-    <div class="introduction__inner">
-      <div class="introduction__img-field">
-        <div class="introduction__img">
-          <%#= image_tag @recipe.images.url , size:'100x100' %>
-        </div>
-      </div>
-      <div class="introduction__texts">
-        <div class="introduction__title">
-          <%= @recipe.title %>
-          <div class="introduction__detail">
-            <%= @recipe.introduction %>
-          </div>
-        </div>
-        <div id="recipe_<%= @recipe.id %>">
-          <%= render "public/bookmarks/bookmark", recipe: @recipe %>
-        </div>
-      </div>
-
-        <div class="recipeuser">
-          <div class="cooking-title">ユーザープロフィール</div>
-          <div class="recipeuser__inner">
-            <div class="recipeuser__img">
-              <%= link_to image_tag(@recipe.user.image), user_path(id: @recipe.user_id) %>
-            </div>
-            <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"recipeuser__name" %>
-            <% if user_signed_in? && @recipe.user == current_user %>
-              <%= link_to 'レシピ編集', edit_recipe_path, class:"btn recipe-edit-btn" %>
-            <% end %>
+  <div class = "container">
+    <div class = "title text-center"></div>
+      <div class = "row ">
+      <div class = "col-8 ml-3">
+        <div class="introduction__img-field">
+          <div class="introduction__img">
+            <%#= image_tag @recipe.images.url , size:'100x100' %>
           </div>
         </div>
 
-        <section class="material">
-          <div class="cooking-title">材料</div>
-            <div class="material__ul">
-              <div><%= @recipe.material %></div>
+        <div class="introduction__texts">
+          <div class="introduction__title">
+            <strong><p>レシピ名：<%= @recipe.title %></p></strong>
+            <div class="introduction__detail">
+            <p><%= @recipe.introduction %></p>
             </div>
-        </section>
-      </div>
-    </div>
-  </section>
+          </div>
+          <div id="recipe_<%= @recipe.id %>">
+            <%= render "public/bookmarks/bookmark", recipe: @recipe %>
+          </div>
+        </div>
 
-  <div class = "col-10">
-      <div class = "recipe-text rounded-lg border-dark">
-
-        <div class = "recipe-header text-muted">
-
-        <section class="tag">
-          <div class="cooking-title">関連タグ</div>
-          <div class="tag__container">
-            <% if @recipe.tags.empty? %>
-              <p class="tag__none">関連タグが設定されていません</p>
-            <% else %>
-              <% @recipe.tags.each do |tag| %>
-                <%= render_with_tags(tag.name, tag.id) %>
+          <div class="recipeuser mt-3">
+            <div class="cooking-title">ユーザープロフィール</div>
+            <div class="recipeuser__inner">
+              <div class="my-1">
+                <%= link_to user_path(id: @recipe.user_id) do %>
+                  <%= image_tag @recipe.user.image, size:'150x150', class: "rounded-circle" %>
+                <% end %>
+              </div>
+              <%= link_to @recipe.user.name, user_path(id: @recipe.user_id), class:"recipeuser__name" %>
+              <% if user_signed_in? && @recipe.user == current_user %>
+                <%= link_to 'レシピ編集', edit_recipe_path, class:"btn recipe-edit-btn" %>
               <% end %>
-            <% end %>
+            </div>
           </div>
-        </section>
 
-          <div class = "d-flex float-right">
-            <%= render "public/articles/rate", score: @recipe.avg_score %>
-            <div class = "mt-1 ml-2"><%= @recipe.avg_score %>点</div>
-          </div>
         </div>
-      </div>
+        </div>
 
-      <section class="step">
-        <div class="cooking-title">作り方</div>
-          <div class="step__item">
-            <div class="step__inner">
-              <div class="step__content">
-                <p class="step__number"></p>
-                <p class="step__description"><%= % @recipe.flow %></p>
+        <div class = "col-9 ml-3">
+            <div class = "recipe-text rounded-lg border-dark">
+                <div class="cooking-title">材料</div>
+                <div class="material__ul">
+                  <div><%= @recipe.material %></div>
+                </div>
+
+                <div class="cooking-title mt-3">関連タグ</div>
+                  <div class="tag__container">
+                    <% if @recipe.tags.empty? %>
+                      <p class="tag__none">関連タグが設定されていません</p>
+                    <% else %>
+                      <% @recipe.tags.each do |tag| %>
+                        <%= render_with_tags(tag.name, tag.id) %>
+                      <% end %>
+                    <% end %>
+                  </div>
+            </div>
+
+              <div class="cooking-title">作り方</div>
+                <div class="step__item">
+                    <div class="step__content">
+                      <p class="step__number"></p>
+                      <p class="step__description"><%= @recipe.flow %></p>
+                    </div>
+                </div>
+              </div>
+
+              <div class = "d-flex float-right">
+                  <%= render "public/recipes/rate", score: @recipe.avg_score %>
+                  <div class = "mt-1 mr-3"><%= @recipe.avg_score %>点</div>
+              </div>
+
+              <div id="comments_area" class = "py-5" >
+                    <% if user_signed_in? %>
+                      <%= render "public/comments/form", comment: @comment %>
+                    <% end %>
+              </div>
+              <div class="w">
+                <div id="comments_index" class = "py-5" >
+                  <%= render 'public/comments/index', comments: @comments, recipe: @recipe %>
+                </div>
               </div>
             </div>
-          </div>
         </div>
-      </section>
-      <div id="comments_area" class = "py-5" >
-            <% if user_signed_in? %>
-              <%= render "public/comments/form", comment: @comment %>
-            <% end %>
-      </div>
-      <div class="w">
-        <div id="comments_index" class = "py-5" >
-      <%= render 'public/comments/index', comments: @comments, recipe: @recipe %>
-        </div>
-      </div>
   </div>
 
 </main>

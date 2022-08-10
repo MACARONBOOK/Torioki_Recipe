@@ -46,4 +46,13 @@ class Recipe < ApplicationRecord
     end
   end
 
+  # 星評価の平均値を表示
+  def avg_score
+    if comments.empty?
+      0.0
+    else
+      comments.average(:rate).round(1)
+    end
+  end
+
 end
