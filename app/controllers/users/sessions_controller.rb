@@ -7,7 +7,7 @@ class Users::SessionsController < Devise::SessionsController
   def guest_sign_in
     user = User.guest
     sign_in user
-    redirect_to posts_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to recipes_path
   end
   # GET /resource/sign_in
   # def new

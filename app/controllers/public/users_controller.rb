@@ -59,10 +59,12 @@ class Public::UsersController < ApplicationController
 
   protected
 
-  # def account_update_params
-  #   @user.update_with_image(params)
-  #   devise_parameter_sanitizer.sanitize(:account_update)
-  # end
+  def withdraw_forbid_guest_user
+      if @user.email == "guest@example.com"
+        flash[:alert] = "ゲストユーザーの退会処理はできません。"
+        redirect_to root_path
+      end
+  end
 
   def account_update_params
     params.permit(:account_update, keys: [:image])

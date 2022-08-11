@@ -15,6 +15,7 @@ class Public::RecipesController < ApplicationController
   def show
     @title = "#{@recipe.title}"
     @comments = Comment.includes([:user]).where(recipe_id: @recipe.id)
+    @user = User.guest
 
     if user_signed_in?
       @comment = current_user.comments.new(flash[:comment])

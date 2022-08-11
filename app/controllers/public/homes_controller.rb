@@ -22,4 +22,14 @@ class Public::HomesController < ApplicationController
     redirect_to root_path, alert: "ご利用誠にありがとうございました。"
   end
 
+  def guest_sign_in
+    user = User.find_or_create_by!(email:"guest@example.com") do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "ゲスト（閲覧用）"
+      user.nickname = "ゲスト（閲覧用）"
+    end
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
 end
