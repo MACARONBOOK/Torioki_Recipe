@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2022_08_07_141406) do
     t.integer "recipe_id", null: false
     t.integer "user_id", null: false
     t.text "content", null: false
+    t.float "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_comments_on_recipe_id"
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(version: 2022_08_07_141406) do
     t.string "amount", default: "", null: false
     t.text "flow", default: "", null: false
     t.string "advise"
+    t.integer "bookmarks_count", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["id"], name: "index_recipes_on_id", unique: true

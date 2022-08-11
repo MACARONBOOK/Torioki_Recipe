@@ -1,0 +1,312 @@
+// base.scssここから
+.font-lr {
+  font-size: 24px;
+}
+
+.mr-sm {
+  margin-right: 16px !important;
+}
+
+.flex {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.input {
+  padding: 15px;
+}
+// base.scssここまで
+
+// top-page.scssここから
+.introduction {
+  &__inner {
+    padding: 50px;
+  }
+  &__texts,
+  &__img {
+    flex-basis: 47%;
+  }
+
+  &__texts {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+// top-page.scssここまで
+
+// recipe-list.scssここから
+.list {
+  &__container {
+    // 1行の要素を左右に寄せる。flexの親要素に指定。
+    justify-content: space-between;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 32%;
+    }
+  }
+  &__item {
+    flex-basis: 32%;
+  }
+
+  &__img {
+    height: 200px;
+  }
+}
+// recipe-list.scssここまで
+
+// recipe-tweet.scssここから
+.tweet {
+  &__img {
+    height: 270px;
+    width: 500px;
+  }
+
+  &__description {
+    display: block;
+    color: #dark-gray;
+  }
+
+  &__detail {
+    flex-basis: 90%;
+  }
+
+  &__user-avatar {
+    height: 48px;
+    width: 48px;
+  }
+}
+// recipe-tweet.scssここまで
+
+// user.scssここから
+.user-list {
+  &__container {
+    &::after {
+      display: block;
+      content: "";
+      width: 32%;
+    }
+  }
+  &__item {
+    flex-basis: 32%;
+  }
+
+  &__img {
+    height: 200px;
+  }
+}
+
+.user {
+  flex-basis: 20%;
+
+  &__img {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+  }
+
+  &__inner {
+    justify-content: space-between;
+  }
+
+  &__info {
+    flex-basis: 42%;
+  }
+
+  &__follow-submit {
+    flex-basis: 42%;
+  }
+}
+
+// user.scssここまで
+
+// consultation.scssここから
+.consultation {
+  &__status {
+    flex-basis: 20%;
+  }
+}
+// consultation.scssここまで
+
+// recipe.scssここから
+.description {
+  &__texts,
+  &__img-field {
+    flex-basis: 47%;
+  }
+}
+// recipe.scssここまで
+
+// steps.scssここから
+.step {
+  &__inner {
+    padding: 18px 0;
+  }
+
+  &__img {
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__description {
+    padding-left: 18px;
+    width: 100%;
+  }
+
+  &__inputBx {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__input {
+    width: 65%;
+    margin: 0;
+  }
+}
+// steps.scssここまで
+
+// button.scssここから
+.btn {
+  &.cancel {
+    width: 40%;
+  }
+
+  &.following,
+  &.followed,
+  &.submenu {
+    width: 60%;
+  }
+
+  &.edit-btn {
+    width: 40%;
+  }
+}
+
+.submit {
+  &>.slide-bg {
+    width: 40%;
+  }
+}
+
+.edit {
+  & >.inventory-edit-btn {
+    width: 40%;
+  }
+}
+
+.cancel {
+  & .cancel-btn {
+    width: 40%;
+  }
+}
+
+.add-field-btn {
+  width: 40%;
+}
+// button.scssここまで
+
+// login.scssここから
+.login {
+  position: relative;
+  height: 100vh;
+  display: flex;
+
+  &__imgBx {
+    position: relative;
+    width: 50%;
+    height: 100%;
+  }
+
+  &__contentBx {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__formBx {
+    width: 70%;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+  }
+}
+// login.scssここまで
+
+// comment.scssここから
+.comment {
+  &__inner {
+    justify-content: space-between;
+  }
+
+  &__texts,
+  &__form {
+    flex-basis: 47%;
+  }
+}
+// comment.scssここから
+
+// tag.scssここから
+.tag {
+  &__container {
+    &::after {
+      display: block;
+      content: "";
+      width: 30%;
+    }
+  }
+  &__item {
+    flex-basis: 30%;
+  }
+}
+
+// tag.scssここまで
+
+// consultation.scssここから
+.consultation {
+  &__user-show-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  &__status {
+    justify-content: space-between;
+  }
+
+  &__says {
+    &::after {
+      top: 20%;
+    }
+  }
+}
+// consultation.scssここまで
+
+// inventories.scssここから
+.inventory {
+  &__item {
+    flex-basis: 47%;
+  }
+}
+// inventories.scssここまで
+
+// pagination.scssここから
+.pagination {
+  &>.page,
+  .first,
+  .prev,
+  .next,
+  .last {
+    margin: 0 10px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+}
+// pagination.scssここまで

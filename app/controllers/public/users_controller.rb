@@ -22,8 +22,8 @@ class Public::UsersController < ApplicationController
 
   def update
 #   順番を変えた
-    # @user.image.attach(account_update_params[:image])
-    # yield @user if block_given?
+    @user.image.attach(account_update_params[:image])
+    yield @user if block_given?
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user.id)
@@ -45,7 +45,7 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:image, :name, :nickname, :introduction)
+    params.require(:user).permit( :name, :nickname, :introduction, :image)
   end
 
   def set_user
@@ -55,5 +55,18 @@ class Public::UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     redirect_to user_path(current_user) unless @user == current_user
+  end
+
+  protected
+
+  def withdraw_forbid_guest_user
+      if @user.email == "guest@example.com"
+        flash[:alert] = "ゲストユーザーの退会処理はできません。"
+        redirect_to root_path
+      end
+  end
+
+  def account_update_params
+    params.permit(:account_update, keys: [:image])
   end
 end

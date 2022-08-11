@@ -1,0 +1,169 @@
+.header {
+  &__nav {
+    display: block;
+  }
+}
+
+// mobile-menu.scssここから
+.mobile-menu {
+  &__btn {
+    display: none;
+  }
+}
+// mobile-menu.scssここまで
+
+
+// base.scssここから
+.font-sm {
+  font-size: 16px;
+}
+
+.font-md {
+  font-size: 19px;
+}
+
+.font-lr {
+  font-size: 28px;
+}
+
+.font-lg {
+  font-size: 36px;
+}
+
+.mb-lg {
+  margin-bottom: 150px !important;
+}
+
+.mr-sm {
+  margin-right: 30px !important;
+}
+
+.pb-lg {
+  padding-bottom: 150px !important;
+}
+
+.flex {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+// base.scssここまで
+
+// button.scssここから
+// .btn {
+//   &.edit-btn {
+//     width: 30%;
+//   }
+// }
+// button.scssここまで
+
+// recipe-list.scssここから
+.list {
+  &__container {
+    justify-content: space-between;
+  }
+
+  &__img {
+    height: 290px;
+  }
+}
+// recipe-list.scssここまで
+
+// recipe-tweet.scssここから
+// recipe-tweet.scssここまで
+
+// consultation.scssここから
+.consultation {
+  &__status {
+    flex-basis: 16%;
+  }
+}
+
+// consultation.scssここまで
+
+// recipe.scssここから
+.description {
+  &__img,
+  &__preview {
+    height: 400px;
+  }
+}
+
+.recipeuser {
+  &__img {
+    height: 60px;
+    width: 60px;
+  }
+}
+// recipe.scssここまで
+
+// recipe.scssここから
+.step {
+  &__img {
+    height: 180px;
+    width: 180px;
+  }
+
+  &__input {
+    width: 70%;
+  }
+}
+// recipe.scssここまで
+
+// user.scssここから
+.user {
+  &__img {
+    height: 150px;
+    width: 150px;
+  }
+}
+// user.scssここまで
+
+// comment.scssここから
+.comment {
+  &__texts,
+  &__form {
+    padding: 45px 30px;
+  }
+
+  &__name {
+    padding-left: 15px;
+  }
+}
+// comment.scssここまで
+
+// tag.scssここから
+.tag {
+  &__container {
+    &::before {
+      display: block;
+      content: "";
+      width: 21%;
+      order: 1;
+    }
+
+    &::after {
+      display: block;
+      content: "";
+      width: 21%;
+    }
+  }
+  &__item {
+    flex-basis: 21%;
+  }
+}
+// tag.scssここまで
+
+// inventories.scssここから
+.inventory {
+  &__container {
+    &::after {
+      display: block;
+      content: "";
+      width: 30%;
+    }
+  }
+  &__item {
+    flex-basis: 30%;
+  }
+}
+// inventories.scssここまで

@@ -9,6 +9,7 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.string :amount, null: false, default: ""
       t.text :flow, null: false, default: ""
       t.string :advise
+      t.integer :bookmarks_count, null: false, default: 0
 
       t.timestamps
     end

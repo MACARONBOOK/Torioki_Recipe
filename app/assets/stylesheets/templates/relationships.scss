@@ -1,0 +1,20 @@
+// Place all the styles related to the public::relationships controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.follow_btn-layout{
+  border: 1px solid #555;
+	border-radius:25px;
+  min-width:210px;
+  padding: 9px;
+  text-align: center;
+	display: inline-block;
+  text-decoration: none;
+  background-color: white;
+  outline: none;
+}
+
+.follow_btn-layout:hover{
+  background:#333;
+  color:#fff;
+}

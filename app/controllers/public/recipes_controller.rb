@@ -15,6 +15,7 @@ class Public::RecipesController < ApplicationController
   def show
     @title = "#{@recipe.title}"
     @comments = Comment.includes([:user]).where(recipe_id: @recipe.id)
+    @user = User.guest
 
     if user_signed_in?
       @comment = current_user.comments.new(flash[:comment])
@@ -28,7 +29,7 @@ class Public::RecipesController < ApplicationController
 
   def edit
     @title = "#{@recipe.title}の編集"
-    @tag_list = @post.tags.pluck(:name).join(',')
+    @tag_list = @recipe.tags.pluck(:name).join(',')
     if @recipe.user == current_user
       render "edit"
     else
@@ -71,13 +72,33 @@ class Public::RecipesController < ApplicationController
   end
 
   def search
+    if user_signed_in?
+      @recipes = @q.result(distinct: true).includes([:bookmarks]).page(params[:page]).per(6)
+    else
+      @recipes = @q.result(distinct: true).includes([:user]).page(params[:page]).per(6)
+    end
+    @search = params[:q][:title_or_ingredients_content_cont]
   end
 
+  def tag_search
+    @tag = Tag.find(params[:tag_id])
+    @recipes = @tag.recipes.includes([:user], [:bookmarks])
+  end
+
+
   private
+
+  def image
+    @recipes = Recipe.where(user_id: current_user.id).where.not(image: nil)
+  end
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
   end
+
+  # def set_q
+  #     @q = Recipe.ransack(params[:q])
+  # end
 
   def recipe_params
     params.require(:recipe).permit( :title, :introduction, :user_id, :material, :flow, :advise, images: [])

@@ -1,0 +1,15 @@
+<%= render 'public/shared/flash' %>
+<section class="list">
+  <div class="cooking-title text-center">レシピ一覧</div>
+
+  <div class = "container">
+    <div class="text-center px-5">
+    <div class = "card pt-5">
+  <%#= render 'public/shared/recipe_search' %>
+  <%= render 'public/shared/recipe_tag_list' %>
+  <%= render 'public/shared/recipe_list' %>
+    </div>
+    </div>
+  </div>
+  <%= paginate @recipes %>
+</section>

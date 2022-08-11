@@ -1,0 +1,90 @@
+.list {
+  // @extend .mb-lg;
+
+  &__container {
+    // @extend .flex;
+    // @extend .content-width;
+  }
+
+  &__item {
+    // @extend .mb-sm;
+    border: 1px solid #light-gray;
+    border-radius: 4px;
+    text-decoration: none !important;
+  }
+
+  &__recipetitle {
+    // @extend .font-md;
+    font-weight: bold;
+    display: inline-block;
+    color: brown !important;
+  }
+
+  &__description {
+    // @extend .font-sm;
+    // @extend .mb-sm;
+    color: #dark-gray;
+  }
+
+  &__img {
+    margin-bottom: 5px;
+    display: block;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 4px;
+
+    & > img {
+      object-fit: cover;
+      height: 100%;
+      width: 35%;
+      margin: 0 30px;
+    }
+
+    &:hover {
+      background-color: #light-gray;
+      opacity: 0.75;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    // @extend .font-sm;
+    // @extend .mb-sm;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__detail {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__comment {
+    // @extend .font-md;
+    display: block;
+    color: black !important;
+    text-decoration: none !important;
+    margin-right: 30px;
+  }
+
+  &__user-img {
+    overflow: hidden;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    margin-right: 8px;
+
+    & > img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__user-name {
+    align-items: flex-end;
+    color: brown !important;
+  }
+}

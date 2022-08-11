@@ -1,0 +1,35 @@
+<h5 class = "mb-2">コメント：<%= @comments.count %> 件</h5>
+<% @comments.each do |comment| %>
+<div class="card">
+  <div class="card-body">
+    <h6 class="card-sub_title text-muted">
+      <%= link_to comment.user.name, user_path(comment.user), class: "text-muted" %>さんのコメント
+      <div class = "text-muted float-right">
+        <%= comment.created_at.strftime("%Y-%m-%d %H:%M") %>
+      </div>
+    </h6>
+    <p class="card-text">
+      <%= comment.comment_content %>
+    </p>
+    <div class = "d-flex float-right">
+      <div id="rate_<%= comment.id %>"></div>
+        <script>
+          $('#rate_<%= comment.id %>').raty({
+            size: 20,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,
+            score: <%= comment.rate %>,
+          });
+        </script>
+      <div class = "ml-3 mt-1">
+       <% if comment.user == current_user %>
+        <%= link_to  "", recipe_comment_path(comment.recipe_id, comment.id), method: :delete, data: { confirm: '本当に削除しますか？' }, remote: true, class: "far fa-trash-alt" %>
+       <% end %>
+      </div>
+     </div>
+  </div>
+</div>
+<% end %>

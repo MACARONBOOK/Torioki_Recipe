@@ -6,13 +6,14 @@ class Recipe < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
 
   has_many_attached :images
+  # mount_uploader :images, RecipeImageUploader
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 50}
   validates :introduction, presence: true, length: { maximum: 140}
   validates :material, presence: true, length: { minimum: 5, maximum: 200}
   # validates :amount, presence: true
-  validates :flow, presence: true, length: {maximum: 200}
+  validates :flow, presence: true, length: {maximum: 300}
   validates :advise, presence: true, length: { maximum: 100}
 
   validate :require_any_materials
@@ -42,6 +43,15 @@ class Recipe < ApplicationRecord
     tag_list.each do |tag|
       inspected_tag = Tag.where(name: tag).first_or_create
       tags << inspected_tag
+    end
+  end
+
+  # 星評価の平均値を表示
+  def avg_score
+    if comments.empty?
+      0.0
+    else
+      comments.average(:rate).round(1)
     end
   end
 
