@@ -1,39 +1,38 @@
 <main>
   <%= render 'layouts/notifications' %>
+
   <section class="introduction">
+      <div class="row">
       <div class="introduction__inner">
         <div class="introduction__img">
           <%= image_tag 'TR_smpl2.png' %>
         </div>
         <div class="introduction__texts">
           <div class="introduction__texts-inner">
-            <!--<div class="introduction__title main-title">-->
-            <!--  Torioki Recipe♪-->
-            <!--</div>-->
-            <!--<div class="introduction__sub sub-title">-->
-            <!--  楽しく自炊ライフを続けよう-->
-            <!--</div>-->
-            <!--<div class="introduction__description">-->
-            <!--  <p>料理ができない、苦手な方<br>毎日の料理作りをサポートします。</p>-->
-            <!--  <p>料理のレシピを通して、お気に入りの料理やノウハウを探し集めよう</p>-->
-            <!--</div>-->
-
-        <div class="col-10 pl-5">
-        <div class="card" style="width:align-self-center;">
-          <%#= image_tag "top_image", class:"card-img"%>
-            <div class="card-img-overlay d-flex align-items-center justify-content-center">
-              <h4 class="bg-light p-4">Torioki_Recipe！<br>
-                 <p>料理ができない、苦手な方<br>毎日の料理作りをサポートします。</p>
-              <p>料理のレシピを通して、お気に入りの料理やノウハウを探し集めよう</p>
-              </h4>
+            <div class="introduction__title main-title">
+              Torioki Recipe♪
             </div>
-        </div>
+            <div class="introduction__sub sub-title">
+              楽しく料理レシピで交流しよう
+            </div>
+            <div class="introduction__description">
+              <p>料理ができない、苦手な方<br>毎日の料理作りをサポートします。</p>
+              <p>料理のレシピを通して、お気に入りの料理やノウハウを探し集めよう</p>
+            </div>
+      </div>
 
-
-
-
-
-
+      <!--<div >-->
+      <!--  <div class="col-10 pl-5">-->
+      <!--  <div class="card" style="width:align-self-center;">-->
+          <%#= image_tag "top_image", class:"card-img"%>
+      <!--      <div class="card-img-overlay d-flex align-items-center justify-content-center">-->
+      <!--        <h4 class="bg-light p-4">Torioki_Recipe！<br>-->
+      <!--           <p>料理ができない、苦手な方<br>毎日の料理作りをサポートします。</p>-->
+      <!--        <p>料理のレシピを通して、お気に入りの料理やノウハウを探し集めよう</p>-->
+      <!--        </h4>-->
+      <!--      </div>-->
+      <!--  </div>-->
+      <!--</div>-->
 
           </div>
         </div>
@@ -51,4 +50,5 @@
     </div>
     <%= render 'public/shared/recipe_list' %>
   </section>
+
 </main>

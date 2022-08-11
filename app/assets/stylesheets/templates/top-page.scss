@@ -1,0 +1,45 @@
+.top_image{
+  height: 200px;
+  background-image: url("images/top_image.jpg");
+}
+
+
+.introduction {
+  // @extend .content-width;
+  // @extend .mb-lg;
+}
+
+.introductio__inner {
+    // @extend .flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #BC8F8F;
+    position: relative;
+    z-index: 0;
+  }
+
+.introduction__img {
+    // @extend .mb-sm;
+    height: 300px;
+    box-shadow: inset 0 0 30px black;
+
+    & > img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: -1;
+    }
+  }
+
+.introduction__texts {
+    // @extend .pb-sm;
+  }
+
+.introduction__title {
+    position: relative;
+  }
+
+.introduction__sub {
+    // @extend .mb-sm;
+  }
