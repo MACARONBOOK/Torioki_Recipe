@@ -5,7 +5,7 @@
       <h3>レシピの詳細</h3>
     </div>
       <div class = "row ml-5">
-      <div class = "col-10 ml-5">
+      <div class = "col-11 ml-3">
         <div class="introduction__img-field">
           <div class="my-1">
             <% @recipe.images.each do |image|%>
@@ -21,14 +21,27 @@
             <p><%= @recipe.introduction %></p>
             </div>
           </div>
-          <div class  = "text-muted recipe-header">
+        </div>
+      </div>
+      </div>
+
+      <div class = "row ml-5">
+      <div class = "col-11 ml-3">
+
+          <div class  = "text-muted recipe-header py-1">
             <%= link_to @recipe.user.nickname, user_path(@recipe.user.id), class: "link text-muted"%>さんが
             <%= @recipe.user.created_at.strftime("%Y年%m月%d日") %>に投稿
+
+            <div id="recipe_<%= @recipe.id %>" >
+              <%= render "public/bookmarks/bookmark", recipe: @recipe %>
+            </div>
           </div>
-          <div id="recipe_<%= @recipe.id %>">
-            <%= render "public/bookmarks/bookmark", recipe: @recipe %>
-          </div>
-        </div>
+
+     </div>
+      </div>
+
+      <div class = "row ml-5">
+      <div class = "col-11 ml-3">
 
           <div class="recipeuser py-2">
             <div class="cooking-title">ユーザープロフィール</div>
@@ -49,7 +62,7 @@
         </div>
 
         <div class = "row ml-5">
-        <div class = "col-10 ml-5">
+        <div class = "col-11 ml-3">
             <div class = "recipe-text rounded-lg border-dark">
                 <div class="cooking-title">材料</div>
                 <div class="material__ul">
@@ -74,12 +87,20 @@
               <div class="cooking-title">作り方</div>
                 <div class="step__item">
                     <div class="step__content">
-                      <p class="step__number"></p>
                       <p></p>
-                      <p class="step__description"><%= @recipe.flow %></p>
+                      <div class="step__description"><%= @recipe.flow %></div>
                     </div>
                 </div>
+
+
+              <div class = "recipe-text rounded-lg border-dark mt-3">
+                <div class="cooking-title mt-3">コツ・ポイント</div>
+                <div class="advise__content">
+                  <p></p>
+                  <div><%= @recipe.advise %></div>
+                </div>
               </div>
+        </div>
         </div>
 
               <div class = "d-flex float-right">
