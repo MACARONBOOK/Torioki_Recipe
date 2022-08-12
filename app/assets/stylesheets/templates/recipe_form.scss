@@ -28,6 +28,53 @@ color: #270000 ;
   text-align: center;
 }
 
+input[type="text"] { width: 47em; }
+
+
+.textarea {
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.form-control {
+//   position: auto;
+//   top: 0;
+  left: 0;
+//   display: block;
+//   overflow: hidden;
+//   box-sizing: border-box;
+  margin: 0 5%;
+  padding: 5px 15px;
+  width: 90%;
+//   height: 30%;
+//   background-color: transparent;
+//   border: 1px solid #b6c3c6;
+//   border-radius: 4px;
+//   color: inherit;
+//   font: inherit;
+//   letter-spacing: inherit;
+//   resize: none;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 4px rgba(35, 167, 195, 0.3);
+  outline: 0;
+}
+
+.form-control-tag {
+ left: 0;
+ margin: 0;
+ padding: 5px 15px;
+ width: 90;
+}
+
+.form-control-tag:focus {
+  box-shadow: 0 0 0 4px rgba(35, 167, 195, 0.3);
+  outline: 0;
+}
+
+
 .introduction__img-field {
   text-align: center;
   height: 150px;
@@ -46,12 +93,17 @@ color: #270000 ;
 
 .material__ul {
   height: auto;
-  margin: 0 5% auto;
+  margin: 0 10% auto;
+}
+
+.material__inputBx {
+  height: auto;
 }
 
 .tag__container {
   height: auto;
-  margin: 0 5% auto;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .step__item {
@@ -96,4 +148,10 @@ color: #270000 ;
 .recipeuser__name {
   text-align: center;
   align-items: center;
+}
+
+.form {
+  height: auto;
+  width: 90%;
+  padding: 0 0 10% 0;
 }
