@@ -32,6 +32,19 @@ class Public::UsersController < ApplicationController
     end
   end
 
+  def bookmarks
+    @user = User.find(params[:id])
+    # このユーザーがしたいいね　そしてそのpost_id
+    bookmarks = Bookmark.where(user_id: @user.id).pluck(:recipe_id)
+    @bookmark_recipes = Recipe.order('id DESC').find(bookmarks)
+  end
+
+  def comments
+    @user = User.find(params[:id])
+    comments = Comment.where(user_id: @user.id).pluck(:recipe_id)
+    @comment_recipes = Recipe.order('id DESC').find(comments)
+  end
+
   def following
     @user  = User.find(params[:id])
     @users = @user.following

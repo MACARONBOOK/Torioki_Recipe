@@ -1,5 +1,6 @@
 class Public::RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_q, only: [:index, :search]
 
   def index
     @title = "レシピ一覧"
@@ -77,7 +78,7 @@ class Public::RecipesController < ApplicationController
     else
       @recipes = @q.result(distinct: true).includes([:user]).page(params[:page]).per(6)
     end
-    @search = params[:q][:title_or_ingredients_content_cont]
+    @search = params[:q][:title_or_materials_content_cont]
   end
 
   def tag_search
@@ -96,9 +97,9 @@ class Public::RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
-  # def set_q
-  #     @q = Recipe.ransack(params[:q])
-  # end
+  def set_q
+      @q = Recipe.ransack(params[:q])
+  end
 
   def recipe_params
     params.require(:recipe).permit( :title, :introduction, :user_id, :material, :flow, :advise, images: [])

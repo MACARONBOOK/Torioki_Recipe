@@ -20,9 +20,11 @@
             <p></p>
             <%= link_to 'レシピ一覧', recipes_path,class:"dropdown-item" %>
             <p></p>
-            <%=link_to"ブックマーク",recipe_bookmarks_path(current_user),class:"dropdown-item"%>
+            <%#=link_to"ブックマーク",recipe_bookmarks_path(current_user),class:"dropdown-item"%>
+            <%=link_to"ブックマーク", bookmarks_user_path(current_user),class:"dropdown-item"%>
             <p></p>
-            <%=link_to "コメントしたレシピ", recipe_comments_path(current_user),class:"dropdown-item"%>
+            <%#=link_to "コメントしたレシピ", recipe_comments_path(current_user),class:"dropdown-item"%>
+            <%=link_to "コメントしたレシピ", comments_user_path(current_user),class:"dropdown-item"%>
             <p></p>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
           </div>
