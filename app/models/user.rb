@@ -29,6 +29,7 @@ class User < ApplicationRecord
     following_relationships.find_by(following_id: user.id)
   end
 
+
   # プロフィール画像
   has_one_attached :image
    def get_image

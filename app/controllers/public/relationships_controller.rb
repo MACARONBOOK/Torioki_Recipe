@@ -3,18 +3,21 @@ class Public::RelationshipsController < ApplicationController
   def create
     @user = User.find(params[:following_id])
     current_user.follow(@user)
-    respond_to do |format|
-      format.html { redirect_to @user }
-      format.js
-    end
+    notification = Notification.new
+    notification.create_follow_notification(current_user, @user.id)
+    # respond_to do |format|
+    #   format.html { redirect_to @user }
+    #   format.js
+    # end
   end
 
   def destroy
-    @user = Relationship.find_by(params[:id]).following
+    @user = User.find(params[:id])
     current_user.unfollow(@user)
-    respond_to do |format|
-      format.html { redirect_to @user }
-      format.js
-    end
+    # redirect_to request.referer
+    # respond_to do |format|
+    #   format.html { redirect_to @user }
+    #   format.js
+    # end
   end
 end

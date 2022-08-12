@@ -33,8 +33,11 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show, :index, :edit, :update] do
       member do
-          get :following, :followers, :bookmarks, :comments
+          get :bookmarks, :comments
       end
+      resource :relationships, only: [:create, :destroy]
+        get 'followings' => 'relationships#followings', as: 'followings'
+        get 'followers' => 'relationships#followers', as: 'followers'
     end
     resource :relationships, only: [:create, :destroy]
 

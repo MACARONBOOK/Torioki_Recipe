@@ -58,7 +58,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-# 画像投稿用のgem
+# 画像投稿/処理用のgem
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 # bootstrapの導入
@@ -83,3 +83,6 @@ gem 'dotenv-rails'
 gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
+
+# 検索機能の導入
+gem "ransack"
