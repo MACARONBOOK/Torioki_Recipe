@@ -12,12 +12,23 @@ class Public::RelationshipsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]).following
     current_user.unfollow(@user)
-    # redirect_to request.referer
+    redirect_to request.referer
     # respond_to do |format|
     #   format.html { redirect_to @user }
     #   format.js
     # end
   end
+
+#   def followings
+#     @user = User.find(params[:user_id])
+#     @users = @user.following_ids
+#   end
+
+#   def followers
+#     @user = User.find(params[:user_id])
+# 		@users = @user.followers
+# 	end
+
 end
