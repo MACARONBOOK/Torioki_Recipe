@@ -3,10 +3,6 @@ class Public::UsersController < ApplicationController
   before_action :set_user, except: [:index]
   before_action :correct_user, only: [:edit, :update]
 
-  def index
-    @users = User.includes(:recipes).page(params[:page]).per(6).order(id: :ASC)
-  end
-
   def show
     @user = User.find(params[:id])
   end
