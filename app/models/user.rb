@@ -9,33 +9,14 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_recipes, through: :bookmarks, source: :recipe
   has_many :comments, dependent: :destroy
-    # あるユーザーがフォローしているユーザーとのアソシエーション
-  has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship",  dependent: :destroy
-  has_many :following, through: :following_relationships
-    # あるユーザーをフォローしてくれてるユーザーとのアソシエーション
-  has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
-  has_many :followers, through: :follower_relationships
-
-  # フォローするときのメソッド
-  def follow(user)
-    following_relationships.create!(following_id: user.id)
-  end
-
-  # フォローを外すメソッド
-  def unfollow(user)
-    following_relationships.find_by(following_id: user.id).destroy
-  end
-
-  # 既にフォロー済かどうか確認するメソッド
-  def following?(user)
-    following_relationships.find_by(following_id: user.id)
-  end
+   # 通知 コメントする側・される側
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
 
   # プロフィール画像
   has_one_attached :image
    def get_image
-    # (image.attached?) ? image : 'no_image.jpg'
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
       image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')

@@ -14,22 +14,24 @@
           <div class = "d-flex justify-content-around ml-4 pb-3">
 
             <div class= "user-box">
+              <div class="show_count">
               <div><%= @user.recipes.count %></div>
               <div class = "text-muted">投稿数</div>
+              </div>
             </div>
 
             <div class="user-box">
-              <div class="following_count">
-                <div><%= link_to @user.following.count, user_followings_path(@user.id), class: "link" %></div>
+              <div class="show_count">
+                <div><%= link_to @user.comments.count, comments_user_path(@user.id), class: "link" %></div>
               </div>
-              <div class = "text-muted">フォロー</div>
+              <div class = "text-muted">レシピへのコメント数</div>
             </div>
 
             <div class="user-box">
-             <div class="follower_count">
-                <div><%= link_to @user.followers.count, user_followers_path(@user.id), class: "link"%></div>
+              <div class="show_count">
+                <div><%= link_to @user.bookmarks.count, bookmarks_user_path(@user.id), class: "link" %></div>
               </div>
-                <div class = "text-muted">フォロワー</div>
+              <div class = "text-muted">ブックマーク数</div>
             </div>
 
           </div>
@@ -40,21 +42,19 @@
                  <div class="btntextchange"><span><i class="fas fa-book-open"></i></span><span>投稿一覧</span></div>
               <% end %>
             </div>
-            <% if @user == current_user %>
+            <% if @user == current_user && @user.email != 'guest@example.com' %>
               <div class = "py-2">
                 <%= link_to  edit_user_path(@user) do %>
                   <div class="btntextchange"><span><i class="fas fa-user-cog"></i></span><span>プロフィール編集</span></div>
                 <% end %>
               </div>
               <div class = "py-2">
-                <%= link_to recipe_bookmarks_path(@user) do %>
+                <%= link_to bookmarks_user_path(@user) do %>
                    <div class="btntextchange"><span><i class="far fa-bookmark"></i></span><span>ブックマークした投稿</span></div>
                 <% end %>
               </div>
             <% else %>
-              <div id = "follow_form">
-                <%= render "public/users/follow_form", user: @user %>
-              </div>
+                <!-- ゲストは表示されない -->
             <% end %>
           </div>
         </div>

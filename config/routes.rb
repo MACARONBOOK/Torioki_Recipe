@@ -35,11 +35,7 @@ Rails.application.routes.draw do
       member do
           get :bookmarks, :comments
       end
-      resource :relationships, only: [:create, :destroy]
-        get 'followings' => 'relationships#followings', as: 'followings'
-        get 'followers' => 'relationships#followers', as: 'followers'
     end
-    resource :relationships, only: [:create, :destroy]
 
     resources :recipes
     resources :recipes do
@@ -49,19 +45,18 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :notifications, only: [:index]
     # タグ・投稿の検索結果ページ
     get 'recipes/tag/:name', to: "recipes#tag_search"
     get 'recipes/search', to: 'recipes#search'
 
   end
 
-
   namespace :admin do
     root to: 'admin/users#index'
     get '/users/index' => "admin/users#index"
     resources :users, except: [:new, :create]
   end
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
