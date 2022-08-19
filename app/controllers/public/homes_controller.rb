@@ -2,9 +2,9 @@ class Public::HomesController < ApplicationController
 
   def top
     if user_signed_in?
-      @recipes = Recipe.includes([:bookmarks], [:user]).page(params[:page]).limit(3)
+      @recipes = Recipe.includes([:bookmarks], [:user]).order('id DESC').page(params[:page]).limit(3)
     else
-      @recipes = Recipe.includes([:user]).page(params[:page]).limit(3)
+      @recipes = Recipe.includes([:user]).order('id DESC').page(params[:page]).limit(3)
     end
   end
 

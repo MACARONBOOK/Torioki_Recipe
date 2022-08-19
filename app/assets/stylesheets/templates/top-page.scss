@@ -21,8 +21,8 @@
 
 .introduction__img {
     // @extend .mb-sm;
-    height: 300px;
-    box-shadow: inset 0 0 30px black;
+    // height: 500px;
+    // box-shadow: inset 0 0 30px black;
 
     & > img {
       object-fit: cover;
@@ -35,6 +35,7 @@
 
 .introduction__texts {
     // @extend .pb-sm;
+    content: center;
   }
 
 .introduction__title {
@@ -44,3 +45,8 @@
 .introduction__sub {
     // @extend .mb-sm;
   }
+
+.list {
+  margin-left: 5%;
+  width: 80%;
+}
