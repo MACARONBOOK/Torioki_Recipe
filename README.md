@@ -42,18 +42,15 @@ Torioki_Recipeは料理のレシピを通してお気に入りの料理やノウ
 ||機能|Gem|
 |:-:|:-:|:-:|
 |1|複数タグ付け||
-|2|検索||
+|2|検索(タグ限定)|ransack|
 |3|ランキング機能||
 |4|Bookmark(Ajax)||
 |5|コメント||
-|6|Pagination|kaminari|
-|7|Bootstrap||
-|8|Slideshow||
-|9|devise日本語化|rails-i18n|
-## 共有のための機能
-||機能|Gem|
-|:-:|:-:|:-:|
-|1|フォロー(Ajax)||
+|6|通知機能||
+|7|Pagination|kaminari|
+|8|Bootstrap||
+|9|Slideshow||
+|10|devise日本語化|rails-i18n|
 
 ## 設計書
 - [ER図](https://app.diagrams.net/#G19IT4eb-ODjpnKxVwaQqhCoQIzikn0yAO)
