@@ -3,11 +3,15 @@
   background-image: url("images/top_image.jpg");
 }
 
+.container-toppage {
+  width: center auto;
+}
+
 .introduction {
   // @extend .content-width;
   // @extend .mb-lg;
-    width: 100%;
-    height: auto;
+    max-width: 80%;
+    margin-left: 10%;
 }
 
 .introductio__inner {
@@ -15,7 +19,7 @@
     justify-content: space-between;
     padding: 15px;
     background-color: #BC8F8F;
-    position: relative;
+    position: absolute;
     z-index: 0;
   }
 
@@ -35,7 +39,7 @@
 
 .introduction__texts {
     // @extend .pb-sm;
-    content: center;
+    padding: 3% 15% 0 0;
   }
 
 .introduction__title {
@@ -47,6 +51,6 @@
   }
 
 .list {
-  margin-left: 5%;
-  width: 80%;
+  margin-left: 20%;
+  width: 60%;
 }

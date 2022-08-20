@@ -38,6 +38,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   font-family: 'Roboto', sans-serif;
@@ -50,7 +51,7 @@ body {
 }
 
 a:link,a:visited,a:active{
-  color:dimgray;
+  color: dimgray;
 }
 
 // fontawesomeの色の変更
@@ -93,3 +94,11 @@ a:hover{
   justify-content: center;
 }
 
+.about-title {
+  color: white;
+  text-align: center;
+  align-items: center;
+  background-color: #BDB76B;
+  height: 40px;
+  font-size: 30px;
+}

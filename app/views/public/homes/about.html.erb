@@ -1,2 +1,69 @@
-<h1>Public::Homes#about</h1>
-<p>Find me in app/views/public/homes/about.html.erb</p>
+<div class = "about-title text-center">アプリの使い方</div>
+ <div class="py-5">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-6 pt-5">
+         <h2 class="pb-4">
+
+           サイトをめいっぱい活用しよう
+         </h2>
+         <p class="lead text-muted">
+            まずは、レシピ一覧のタグ検索から<br>
+            レシピを探してみましょう。<br>
+            気になるレシピを元に行動してみましょう。
+        </p>
+      </div>
+      <div class="col-md-6">
+        <%= image_tag asset_path("what-can-do.png", alt: "概要の画像"), class: "about-img-left" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 order-md-2 pt-5">
+        <h2 class="pb-4">
+
+          アウトプットしよう
+        </h2>
+        <p class="lead text-muted">
+          実際にログインして、アクションを起こしてみましょう。
+        </p>
+      </div>
+      <div class="col-md-6 order-md-1">
+         <%= image_tag asset_path("post-recipe.png", alt: "投稿の画像"), class: "about-img-right" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="py-5">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-6 pt-5">
+         <h2 class="pb-4">
+
+          レシピの書き方を確認しよう
+         </h2>
+         <p class="lead text-muted">
+          レシピ投稿で必要な項目を確認して、
+          実際に投稿してみましょう。
+        </p>
+      </div>
+      <div class="col-md-6 mb-4">
+        <%= image_tag asset_path("how-to-write.png", alt: "説明の画像"), class: "about-img-left" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class = "text-center pb-5">
+    <% if user_signed_in? %>
+      <%= link_to "HOMEへ戻る", root_path, class: "navbar-brand link" %>
+    <% else %>
+      <%= link_to "TOPへ戻る", root_path, class: "navbar-brand link" %>
+    <% end %>
+  </div>
