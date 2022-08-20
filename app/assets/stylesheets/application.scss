@@ -50,6 +50,10 @@ body {
     color: black ;
 }
 
+a:link,a:visited,a:active{
+  color: dimgray;
+}
+
 // fontawesomeの色の変更
 .fas{
   color: #516C9D ;
@@ -90,3 +94,11 @@ a:hover{
   justify-content: center;
 }
 
+.about-title {
+  color: white;
+  text-align: center;
+  align-items: center;
+  background-color: #BDB76B;
+  height: 40px;
+  font-size: 30px;
+}

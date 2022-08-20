@@ -26,35 +26,37 @@ Rails.application.routes.draw do
     get '/about' => "homes#about"
     get "/search" => "homes#search"
 
+    # ユーザの退会確認ページ
     get "unsubscribe/:name" => "homes#unsubscribe", as: "confirm_unsubscribe"
     patch ":id/withdraw/:name" => "homes#withdraw", as: "withdraw_user"
     put "withdraw/:name" => "users#withdraw"
 
     resources :users, only: [:show, :index, :edit, :update] do
       member do
-          get :following, :followers
+          get :bookmarks, :comments
       end
     end
-    resource :relationships, only: [:create, :destroy]
 
     resources :recipes
     resources :recipes do
       resources :comments, only: [:create, :destroy]
-      resource :bookmarks, only: [:show, :create, :destroy]
+      resource :bookmarks, only: [:show, :create, :destroy] do
+        get 'recipes/:recipe_id/bookmarks' => 'bookmarks#show', as: 'my_bookmarks'
+      end
     end
 
+    resources :notifications, only: [:index]
+    # タグ・投稿の検索結果ページ
     get 'recipes/tag/:name', to: "recipes#tag_search"
     get 'recipes/search', to: 'recipes#search'
 
   end
-
 
   namespace :admin do
     root to: 'admin/users#index'
     get '/users/index' => "admin/users#index"
     resources :users, except: [:new, :create]
   end
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

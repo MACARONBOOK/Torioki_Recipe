@@ -1,11 +1,10 @@
 <main>
-  <%#= render 'layouts/notifications' %>
 
   <section class="introduction">
-      <div class="row ml-3">
+      <div class="container-toppage">
       <div class="introduction__inner">
         <div class="introduction__img">
-          <%= image_tag 'introduction.png' %>
+          <%= image_tag 'DISH×RECIPE.png' %>
         </div>
         <div class="introduction__texts">
           <div class="introduction__texts-inner">
@@ -25,16 +24,32 @@
       </div>
   </section>
 
-
   <section class="list">
     <div class="subheader">
       <div>
         <p class="main-title">What's New?</p>
-        <p class="sub-title">新しいレシピを見つけよう</p>
+        <p class="sub-title">新しいレシピを見つけよう　　>>>>>
+        <%= link_to " もっと見る ", recipes_path %>
+        </p>
       </div>
-      <%#= link_to image_tag('read_more', class: "read_more-btn"), recipes_path %>
     </div>
-    <%= render 'public/shared/recipe_list' %>
+
+    <div class="list__container">
+      <% @recipes.each do |recipe| %>
+        <div class="list__item mb-4">
+          <% if recipe.images.any? %>
+          <%= link_to  recipe_path(recipe) , class: "list__img" do  %>
+            <%= image_tag recipe.images[0] %>
+          <% end %>
+          <% end %>
+          <div class="list__detail">
+            <!--<span class="timestamp"><%#= recipe.created_at.to_s(:datetime_jp) %></span><br>-->
+            <%= link_to recipe.title, recipe_path(recipe), class: 'list__recipetitle' %>
+            <div class="list__introduction"><%= recipe.introduction %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </section>
 
 </main>

@@ -3,10 +3,6 @@ class Public::UsersController < ApplicationController
   before_action :set_user, except: [:index]
   before_action :correct_user, only: [:edit, :update]
 
-  def index
-    @users = User.includes(:recipes).page(params[:page]).per(6).order(id: :ASC)
-  end
-
   def show
     @user = User.find(params[:id])
   end
@@ -30,6 +26,19 @@ class Public::UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def bookmarks
+    @user = User.find(params[:id])
+    # このユーザーがしたいいね　そしてそのpost_id
+    bookmarks = Bookmark.where(user_id: @user.id).pluck(:recipe_id)
+    @bookmark_recipes = Recipe.order('id DESC').find(bookmarks)
+  end
+
+  def comments
+    @user = User.find(params[:id])
+    comments = Comment.where(user_id: @user.id).pluck(:recipe_id)
+    @comment_recipes = Recipe.order('id DESC').find(comments)
   end
 
   def following

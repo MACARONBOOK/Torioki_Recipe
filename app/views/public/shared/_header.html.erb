@@ -1,51 +1,54 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-  <a class="navbar-brand" href="/"><img src= '/assets/TR_browny.png' alt="..." size: '200×150', class="logo_img" %></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src= '/assets/TR_browny.png' alt="..." size: '200×150', class="logo_img" %></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
 
       <% if user_signed_in? %>
-        <!--<li><%#= link_to 'Recipes', recipes_path, class: "fas fa-books mt-2" %></li>-->
-        <li><%#= link_to 'Users', users_path, class: "fas fa-users mt-2" %></li>
+
         <li class="nav-item">
-        <div class="dropdown">
+          <div class="dropdown">
           <button class="btn btn-light dropdown-toggle fas fa-ribbon" type="button" data-toggle="dropdown">My page</button>
           <div class="dropdown-menu">
-            <%=link_to"マイページ",user_path(current_user.id),class:"dropdown-item"%>
+            <%= link_to"マイページ",user_path(current_user.id),class:"dropdown-item"%>
             <p></p>
-            <%= link_to 'ユーザー一覧', users_path, class: "dropdown-item" %>
+            <%= link_to 'レシピ投稿', new_recipe_path, class:"dropdown-item" %>
             <p></p>
             <%= link_to 'レシピ一覧', recipes_path,class:"dropdown-item" %>
             <p></p>
-            <%=link_to"ブックマーク",recipe_bookmarks_path(current_user),class:"dropdown-item"%>
+            <%= link_to"ブックマーク", bookmarks_user_path(current_user),class:"dropdown-item"%>
             <p></p>
-            <%=link_to "コメントしたレシピ", recipe_comments_path(current_user),class:"dropdown-item"%>
+            <%= link_to "コメントしたレシピ", comments_user_path(current_user),class:"dropdown-item"%>
             <p></p>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
           </div>
-        </div>
+          </div>
         </li>
 
-
       <% elsif admin_signed_in? %>
-        <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "fas fa-door-open mr-2" %></li>
+
+        <li class="nav-item">
+          <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "fas fa-door-open mr-2" %></li>
 
       <% else %>
-        <li><%= link_to 'Sign up', new_user_registration_path, class: "far mr-2" %></li>
-        <li><%= link_to 'Log in', new_user_session_path, class: "far mr-2" %></li>
-        <li><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "far fa-users mr-2" %></li>
-        <li><%= link_to 'About', about_path, class: "far fa-question-circle mr-2" %></li>
+
+        <li class="nav-item">
+          <%= link_to '　Sign up', new_user_registration_path, class: "far mr-2" %></li>
+        <li class="nav-item">
+          <%= link_to '　Log in', new_user_session_path, class: "far mr-2" %></li>
+        <li class="nav-item">
+          <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "far fa-users mr-2" %></li>
+        <li class="nav-item">
+          <%= link_to 'About', about_path, class: "far fa-question-circle mr-2" %></li>
+
+
       <% end %>
 
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-  </div>
+    </div>
+    </ul>
   </div>
 </nav>
 
