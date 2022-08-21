@@ -56,6 +56,7 @@ class Public::RecipesController < ApplicationController
   def update
     # 入力されたタグを受け取る
     tag_list = params[:recipe][:tag_name].split(',')
+    @recipe.images.attach(params[:images]) if @recipe.images.blank?
     @recipe.update(recipe_params)
     if @recipe.save
       @recipe.save_tags(tag_list)

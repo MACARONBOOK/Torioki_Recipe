@@ -2,9 +2,13 @@
   <% @recipes.each do |recipe| %>
     <div class="list__item mb-4">
       <% if recipe.images.any? %>
-      <%= link_to  recipe_path(recipe) , class: "list__img" do  %>
-        <%= image_tag recipe.images[0] %>
-      <% end %>
+          <%= link_to  recipe_path(recipe) , class: "list__img" do  %>
+            <%= image_tag recipe.images[0], format: 'jpeg',fallback: "no-image.jpg", size:'150x150' %>
+          <% end %>
+      <% else%>
+          <%= link_to  recipe_path(recipe) , class: "list__img" do  %>
+            <%= image_tag recipe.get_image(50, 50) %>
+          <% end %>
       <% end %>
       <div class="list__detail">
         <span class="timestamp"><%= recipe.created_at.to_s(:datetime_jp) %></span><br>
