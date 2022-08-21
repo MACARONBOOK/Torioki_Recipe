@@ -28,6 +28,15 @@ class Recipe < ApplicationRecord
     errors.add(:base, "作り方は1つ以上登録してください。") if self.flow.blank?
   end
 
+  def get_image(width, height)
+    unless image.attached?
+      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    image
+  end
+
+
 
   # 既にブックマークしていないか確認
   def bookmarked_by?(user)
