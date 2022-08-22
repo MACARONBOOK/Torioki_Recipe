@@ -6,74 +6,74 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Admin.create!(
-#   email: 'admin@test.com',
-#   password: '123Okazu',
-# )
+Admin.create!(
+  email: 'admin@test.com',
+  password: '123Okazu',
+)
 
-# User.create!(
-#   name: 'まとべ',
-#   nickname: 'とっぺ',
-#   email: 'matobe@gmail.com',
-#   password: 'mtb123A',
-#   introduction: '"料理のレパートリーを増やし中です。\r\n魚の捌き方が分からないので、聞くと思います！',
-#   image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/toppe.png")),filename: 'toppe.png'),
-#   is_valid: true
-# )
+User.create!(
+  name: 'まとべ',
+  nickname: 'とっぺ',
+  email: 'matobe@gmail.com',
+  password: 'mtb123A',
+  introduction: '"料理のレパートリーを増やし中です。\r\n魚の捌き方が分からないので、聞くと思います！',
+  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/toppe.png")),filename: 'toppe.png'),
+  is_valid: true
+)
 
-# User.create!(
-#   name: 'かえで',
-#   nickname: 'メープル',
-#   email: 'maple@gmail.com',
-#   password: 'krkt475A',
-#   introduction: '"料理のレパートリーを増やし中です。\r\n魚の捌き方が分からないので、聞くと思います！',
-#   image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/kaede.png")),filename: 'kaede.png'),
-#   is_valid: true
-# )
+User.create!(
+  name: 'かえで',
+  nickname: 'メープル',
+  email: 'maple@gmail.com',
+  password: 'krkt475A',
+  introduction: '"料理のレパートリーを増やし中です。\r\n魚の捌き方が分からないので、聞くと思います！',
+  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/kaede.png")),filename: 'kaede.png'),
+  is_valid: true
+)
 
-# User.create!(
-#   id: 3,
-#   name: 'ゲスト（閲覧用',
-#   nickname: 'ゲスト（閲覧用',
-#   email: 'uest@example.com',
-#   is_valid: true
-# )
+User.create!(
+  id: 3,
+  name: 'ゲスト（閲覧用',
+  nickname: 'ゲスト（閲覧用',
+  email: 'uest@example.com',
+  is_valid: true
+)
 
-# User.create!(
-#   name: '久我恭介',
-#   nickname: 'がっく',
-#   email: 'kuga@gmail.com',
-#   password: 'dJDG8gz3UN6qkeG',
-#   introduction: '""料理ビギナーです。\r\n食材の切り方を習得中なんで、教えて下さい！',
-#   image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/gakku.png")),filename: 'gakku.png'),
-#   is_valid: true
-# )
+User.create!(
+  name: '久我恭介',
+  nickname: 'がっく',
+  email: 'kuga@gmail.com',
+  password: 'dJDG8gz3UN6qkeG',
+  introduction: '""料理ビギナーです。\r\n食材の切り方を習得中なんで、教えて下さい！',
+  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/gakku.png")),filename: 'gakku.png'),
+  is_valid: true
+)
 
-# User.create!(
-#   name: 'かいと',
-#   nickname: 'くいしんぼ',
-#   email: 'mogu@gmail.com',
-#   password: 'hG589Etee3x',
-#   introduction: '名前通り、食べるのが専門。簡単に作れるアレンジレシピを教えてほしいです。',
-#   image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/mogu.png")),filename: 'mogu.png'),
-#   is_valid: true
-# )
+User.create!(
+  name: 'かいと',
+  nickname: 'くいしんぼ',
+  email: 'mogu@gmail.com',
+  password: 'hG589Etee3x',
+  introduction: '名前通り、食べるのが専門。簡単に作れるアレンジレシピを教えてほしいです。',
+  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/mogu.png")),filename: 'mogu.png'),
+  is_valid: true
+)
 
-# Tag.create!(
-#   name: "パスタ"
-# )
+Tag.create!(
+  name: "パスタ"
+)
 
-# Tag.create!(
-#   name: "カレー"
-# )
+Tag.create!(
+  name: "カレー"
+)
 
-# Tag.create!(
-#   name: "ご飯もの"
-# )
+Tag.create!(
+  name: "ご飯もの"
+)
 
-# Tag.create!(
-#   name: "パン"
-# )
+Tag.create!(
+  name: "パン"
+)
 
 Recipe.create!(
   [
