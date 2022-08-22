@@ -101,10 +101,10 @@ ActiveRecord::Schema.define(version: 2022_08_18_073438) do
     t.bigint "user_id", null: false
     t.string "image"
     t.string "title", default: "", null: false
-    t.text "introduction", default: "", null: false
+    t.text "introduction", null: false
     t.string "material", default: "", null: false
     t.string "amount", default: "", null: false
-    t.text "flow", default: "", null: false
+    t.text "flow", null: false
     t.string "advise"
     t.integer "bookmarks_count", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
