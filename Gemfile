@@ -54,7 +54,7 @@ end
 # 本番環境で必要なgem
 group :production do
   gem 'mysql2'
-  gem 'psych', '~> 3.1'
+  # gem 'psych', '~> 3.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
