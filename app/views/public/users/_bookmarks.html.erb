@@ -5,8 +5,8 @@
         <h6>Select</h6>
           <% if @user == current_user %>
             <p>以下は他のユーザーには表示されません。</p>
-            <p style="font-size:18px;"><%=link_to"いいねした記事　",bookmarks_user_path(user),class:"fas fa-star"%></p>
-            <p style="font-size:18px;"><%=link_to "コメントした記事", comments_user_path(user),class:"fas fa-comment-dots"%></p>
+            <p style="font-size:18px;"><%=link_to"ブックマークしたレシピ　",bookmarks_user_path(user),class:"fas fa-star"%></p>
+            <p style="font-size:18px;"><%=link_to "コメントしたレシピ", comments_user_path(user),class:"fas fa-comment-dots"%></p>
           <% end %>
       </div>
 

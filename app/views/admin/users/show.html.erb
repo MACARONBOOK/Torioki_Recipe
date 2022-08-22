@@ -10,28 +10,8 @@
        <p></p>
        <p>ニックネーム: <%= @user.nickname %></p>
        <p>投稿数: <%= @user.recipes.count %></p>
-       <%#= @user.followings.count %>
-       <p>フォロワー数: <%= @user.followers.count %></p>
        <p>紹介文: <%= @user.introduction %></p>
-      <div>
-        <div class = "py-2">
-          <%= link_to "プロフィールを編集する", edit_user_path(@user) , class:"btn btn-outline-secondary btn-block"%>
-        </div>
-      </div>
+       <p></p>
     </div>
   </div>
-
-  <!--<div class = "sub_title text-center py-4">投稿一覧</div>-->
-  <!--<div class = "row">-->
-  <!--  <div class = "col-2"></div>-->
-  <!--  <div class = "col-8">-->
-      <%# @recipes.each do |recipe| %>
-        <%#= render "public/recipes/index", recipe: recipe %>
-      <%# end %>
-  <!--    <div class = "pagination-sm pt-3">-->
-        <%#= paginate @recipes %>
-  <!--    </div>-->
-  <!--  </div>-->
-  <!--</div>-->
-  <!--</div>-->
 </div>

@@ -1,6 +1,6 @@
 <% if @bookmark_recipes.present? %>
-<p class="text-center" style="color:blue; font-size:15px;"><i class="fas fa-bookmark"></i>ブックマークした記事を表示しています。</p>
+<p class="text-center" style="color:blue; font-size:15px;"><i class="fas fa-bookmark"></i>ブックマークしたレシピを表示しています。</p>
 <% else %>
-<p class="text-center" style="color:blue; font-size:15px;"><i class="far fa-bookmark"></i>ブックマークした記事はありません。</p>
+<p class="text-center" style="color:blue; font-size:15px;"><i class="far fa-bookmark"></i>ブックマークしたレシピはありません。</p>
 <% end %>
 <%= render 'bookmarks', bookmark_recipes: @bookmark_recipes,user: @user %>
