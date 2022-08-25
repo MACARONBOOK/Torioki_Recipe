@@ -16,9 +16,8 @@ User.create!(
   nickname: 'とっぺ',
   email: 'matobe@gmail.com',
   password: 'mtb123A',
-  introduction: '"料理のレパートリーを増やし中です。\r\n魚の捌き方が分からないので、聞くと思います！',
-  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/toppe.png")),filename: 'toppe.png'),
-  is_valid: true
+  introduction: '料理のレパートリーを増やし中です。魚の捌き方が分からないので、聞くと思います！',
+  profile_image_id: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/toppe.png")),filename: 'toppe.png'),
 )
 
 User.create!(
@@ -26,15 +25,14 @@ User.create!(
   nickname: 'メープル',
   email: 'maple@gmail.com',
   password: 'krkt475A',
-  introduction: '"料理のレパートリーを増やし中です。\r\n魚の捌き方が分からないので、聞くと思います！',
-  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/kaede.png")),filename: 'kaede.png'),
-  is_valid: true
+  introduction: 'お菓子作りが得意です。難しいものは工程ごとに投稿します！',
+  # image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/kaede.png")),filename: 'kaede.png'),
 )
 
 User.create!(
   id: 3,
-  name: 'ゲスト（閲覧用',
-  nickname: 'ゲスト（閲覧用',
+  name: 'ゲスト（閲覧用)',
+  nickname: 'ゲスト（閲覧用)',
   email: 'uest@example.com',
   is_valid: true
 )
@@ -44,9 +42,8 @@ User.create!(
   nickname: 'がっく',
   email: 'kuga@gmail.com',
   password: 'dJDG8gz3UN6qkeG',
-  introduction: '""料理ビギナーです。\r\n食材の切り方を習得中なんで、教えて下さい！',
-  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/gakku.png")),filename: 'gakku.png'),
-  is_valid: true
+  introduction: '""料理ビギナーです。食材の切り方を習得中なんで、教えて下さい！',
+  # image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/gakku.png")),filename: 'gakku.png'),
 )
 
 User.create!(
@@ -55,8 +52,7 @@ User.create!(
   email: 'mogu@gmail.com',
   password: 'hG589Etee3x',
   introduction: '名前通り、食べるのが専門。簡単に作れるアレンジレシピを教えてほしいです。',
-  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/mogu.png")),filename: 'mogu.png'),
-  is_valid: true
+  # image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/mogu.png")),filename: 'mogu.png'),
 )
 
 Tag.create!(
@@ -74,6 +70,10 @@ Tag.create!(
 Tag.create!(
   name: "パン"
 )
+Tag.create!(
+  name: "下準備"
+)
+
 
 Recipe.create!(
   [

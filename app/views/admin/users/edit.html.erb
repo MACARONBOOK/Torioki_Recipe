@@ -2,7 +2,7 @@
   <div class = "title text-center">
     <div>
       <%= image_tag @user.get_image, size:'55x55', class: "rounded-circle"%>
-      <%= @user.nickname %> プロフィール編集
+      <%= @user.nickname %>さんの プロフィール編集
     </div>
   </div>
   <div class = "card">
@@ -21,13 +21,16 @@
           <h6 class = "text-muted pb-1 pt-3">自己紹介</h5>
           <%= f.text_area :introduction, class: "form-control" %>
 
-           <div class = "pb-1 pt-3">
+          <div class = "pb-1 pt-3">
             <%= f.submit "更新", class: "btn btn-secondary bg-secondary text-white" %>
-           </div>
+          </div>
+          <div class = "float-center mt-3">
+           <% if @user.is_valid == true %>
+           <div><%= link_to "ユーザーの退会はこちら", confirm_unsubscribe_path(@user), class: "link mr-2" %></div>
+           <% else %>
+           <% end %>
+          </div>
          <% end %>
-         <div class = "float-right">
-           <div><%= link_to "退会をご希望の方はこちら", confirm_unsubscribe_path(@user), class: "link mr-2" %></div>
-         </div>
       </div>
     </div>
   </div>
