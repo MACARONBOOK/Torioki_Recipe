@@ -3,6 +3,15 @@
   background-image: url("images/top_image.jpg");
 }
 
+.boundary {
+  position: relative;
+  width: 90%;
+  margin-left: 5%;
+  border-top: #BDB76B 5px dashed;
+  border-bottom: #845e6e 5px dashed;
+  margin-bottom: 40px;
+}
+
 .container-toppage {
   width: center auto;
 }

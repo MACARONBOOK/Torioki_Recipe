@@ -5,8 +5,12 @@
     検索結果
   <% end %>
 </div>
-<%= render 'shared/recipe_search' %>
-<%= render 'shared/recipe_list' %>
-<%= paginate @recipes %>
+<section class= "list">
+  <%= render 'public/shared/recipe_search' %>
+  <div class= "result-list" style="box-sizing: border-box">
+    <%= render 'public/shared/recipe_list' %>
+    <%= paginate @recipes %>
+  </div>
+    <div class="cancel"><%= link_to 'レシピ一覧に戻る', recipes_path, class:"btn cancel-btn"%></div>
 
-<div class="cancel"><%= link_to 'レシピ一覧に戻る', recipes_path, class:"btn cancel-btn"%></div>
+</section>

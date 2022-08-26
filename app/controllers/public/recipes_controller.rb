@@ -79,7 +79,7 @@ class Public::RecipesController < ApplicationController
     else
       @recipes = @q.result(distinct: true).includes([:user]).page(params[:page]).per(6)
     end
-    @search = params[:q][:title_or_materials_content_cont]
+    @search = params[:q][:title_or_introduction_or_material_cont]
   end
 
   def tag_search

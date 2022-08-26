@@ -1,12 +1,14 @@
-<%= render 'public/shared/flash' %>
 <section class="list">
   <div class="cooking-title text-center">レシピ一覧</div>
 
   <div class = "container">
     <div class="text-center px-5">
     <div class = "card pt-5">
-  <%#= render 'public/shared/recipe_search' %>
+    <!--キーワード検索-->
+  <%= render 'public/shared/recipe_search' %>
+    <!--タグ絞り込み-->
   <%= render 'public/shared/recipe_tag_list' %>
+    <!--レシピ一覧-->
   <%= render 'public/shared/recipe_list' %>
     </div>
     </div>

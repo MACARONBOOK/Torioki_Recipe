@@ -17,12 +17,36 @@ color: #270000 ;
   align-items: center;
 }
 
+.result-list {
+  position: relative;
+  text-align: center;
+  background:#F9F9EA; /*背景色の指定*/
+  border:#BDB76B 8px dotted;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.result-list:before {
+  content:"";
+  position:absolute;
+  top: 100%;
+  left: 45%; /*三角形の位置指定*/
+  border: 30px solid transparent; /*三角形の幅指定*/
+  border-top:#F9F9EA 25px solid; /*三角形の高さと色指定*/
+  width: 0;
+  height: 0;
+}
+.result-list p {
+  margin:0;
+  padding:0;
+}
+
 .cooking-title {
   color: white;
   text-align: center;
   align-items: center;
   background-color: #BDB76B;
-  font-size: 18px;
+  font-size: 19px;
 }
 
 .recipe-header {

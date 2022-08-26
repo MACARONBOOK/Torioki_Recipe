@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  #新規登録・ログイン
   namespace :public do
     get 'bookmarks/show'
   end
@@ -24,7 +25,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get '/about' => "homes#about"
-    get "/search" => "homes#search"
+    # タグ・投稿の検索結果ページ
+    get 'recipes/tag/:name', to: "recipes#tag_search"
+    get 'recipes/search', to: 'recipes#search'
 
     # ユーザの退会確認ページ
     get "unsubscribe/:name" => "homes#unsubscribe", as: "confirm_unsubscribe"
@@ -46,10 +49,6 @@ Rails.application.routes.draw do
     end
 
     resources :notifications, only: [:index]
-    # タグ・投稿の検索結果ページ
-    get 'recipes/tag/:name', to: "recipes#tag_search"
-    get 'recipes/search', to: 'recipes#search'
-
   end
 
   namespace :admin do
