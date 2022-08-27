@@ -1,6 +1,6 @@
 # Torioki_Recipe
 
-サイトの画像を添付予定
+![DISH×RECIPE (1)](https://user-images.githubusercontent.com/106646758/187017213-e1a99488-b11e-429e-af4a-a8643e04fbf3.png)
 
 Torioki_Recipeは料理のレシピを通してお気に入りの料理やノウハウを探し集めるサイトです。
 
@@ -42,15 +42,14 @@ Torioki_Recipeは料理のレシピを通してお気に入りの料理やノウ
 ||機能|Gem|
 |:-:|:-:|:-:|
 |1|複数タグ付け||
-|2|検索(タグ限定)|ransack|
+|2|検索(タグとキーワード)|ransack|
 |3|ランキング機能||
 |4|Bookmark(Ajax)||
 |5|コメント||
 |6|通知機能||
 |7|Pagination|kaminari|
 |8|Bootstrap||
-|9|Slideshow||
-|10|devise日本語化|rails-i18n|
+||devise日本語化|rails-i18n|
 
 ## 設計書
 - [ER図](https://app.diagrams.net/#G19IT4eb-ODjpnKxVwaQqhCoQIzikn0yAO)
