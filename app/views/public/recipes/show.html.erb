@@ -7,13 +7,16 @@
       <div class = "col-11 ml-3">
         <div class="introduction__img-field">
           <div class="my-1">
-            <% @recipe.images.each do |image|%>
-            <%= image_tag image , size:'150x150',class:"card-icon" %>
+            <% if @recipe.images.any? %>
+            <%# @recipe.images.each do |image| %>
+            <%= image_tag @recipe.images[0], size: "150×150" ,class:"card-icon-recipe" %>
+            <% else%>
+            <%= image_tag image, format: 'jpeg', fallback: "no-image.jpg", size: "150×150"%>
             <% end %>
           </div>
         </div>
 
-        <div class="introduction__texts">
+        <div class="introduction__texts mt-4">
           <div class="text-center detail-font">
             <p>レシピ名：<%= @recipe.title %></p>
             <div class="introduction__detail">
