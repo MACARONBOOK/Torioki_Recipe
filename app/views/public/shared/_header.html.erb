@@ -16,6 +16,8 @@
           <div class="dropdown-menu">
             <%= link_to"マイページ",user_path(current_user.id),class:"dropdown-item"%>
             <p></p>
+            <%= link_to 'アプリの使い方', about_path, class:"dropdown-item" %>
+            <p></p>
             <%= link_to 'レシピ投稿', new_recipe_path, class:"dropdown-item" %>
             <p></p>
             <%= link_to 'レシピ一覧', recipes_path,class:"dropdown-item" %>
