@@ -8,7 +8,7 @@
 
 Admin.create!(
   email: 'admin@test.com',
-  password: '123Okazu',
+  password: '123Okazu'
 )
 
 User.create!(
@@ -17,7 +17,7 @@ User.create!(
   email: 'matobe@gmail.com',
   password: 'mtb123A',
   introduction: '料理のレパートリーを増やし中です。魚の捌き方が分からないので、聞くと思います！',
-  profile_image_id: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/toppe.png")),filename: 'toppe.png'),
+  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/toppe.png")),filename: 'toppe.png')
 )
 
 User.create!(
@@ -26,7 +26,7 @@ User.create!(
   email: 'maple@gmail.com',
   password: 'krkt475A',
   introduction: 'お菓子作りが得意です。難しいものは工程ごとに投稿します！',
-  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/kaede.png")),filename: 'kaede.png'),
+  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/kaede.png")),filename: 'kaede.png')
 )
 
 User.create!(
@@ -34,8 +34,7 @@ User.create!(
   nickname: 'yomi',
   email: 'yomi@gmail.com',
   password: 'ay080bvD',
-  introduction: '夜食を作る事が多いので、低カロリーなレシピを知りたいです。',
-  #image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/yomi.png")),filename: 'yomi.png'),
+  introduction: '夜食を作る事が多いので、低カロリーなレシピを知りたいです。'
 )
 
 User.create!(
@@ -43,8 +42,7 @@ User.create!(
   nickname: 'がっく',
   email: 'kuga@gmail.com',
   password: 'dJDG8gz3UN6qkeG',
-  introduction: '料理ビギナーです。食材の切り方を習得中なんで、教えて下さい！',
-  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/gakku.png")),filename: 'gakku.png'),
+  introduction: '料理ビギナーです。食材の切り方を習得中なんで、教えて下さい！'
 )
 
 User.create!(
@@ -53,7 +51,7 @@ User.create!(
   email: 'mogu@gmail.com',
   password: 'hG589Etee3x',
   introduction: '名前通り、食べるのが専門。簡単に作れるアレンジレシピを教えてほしいです。',
-  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/mogu.png")),filename: 'mogu.png'),
+  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/mogu.png")),filename: 'mogu.png')
 )
 
 Tag.create!(
