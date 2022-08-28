@@ -21,13 +21,12 @@ class Public::UsersController < ApplicationController
     @user.image.attach(account_update_params[:image])
     yield @user if block_given?
     @user = User.find(params[:id])
-    if @user == current_user
+    @user = current_user
       if @user.update(user_params)
         redirect_to user_path(@user.id)
       else
         render :edit
       end
-    end
   end
 
   def bookmarks
