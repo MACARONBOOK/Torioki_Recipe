@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :authenticate_user!,except: [:top, :about]
+  # before_action :authenticate_user!,except: [:top, :about]
   before_action :authenticate_admin!, if: :admin_url
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   def admin_url
     request.fullpath.include?("/admin")
   end
+
+  protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :nickname, :email, :password, :password_confirmation])

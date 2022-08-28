@@ -17,11 +17,14 @@ class Public::HomesController < ApplicationController
 
   def withdraw
     @user = User.find(params[:id])
+    # is_validカラムに削除フラグを立てる(defaultはtrue)
     @user.update(is_valid: false)
+    #ログアウトさせる
     reset_session
     redirect_to root_path, alert: "ご利用誠にありがとうございました。"
   end
 
+  # ゲストのアカウント
   def guest_sign_in
     user = User.find_or_create_by!(email:"guest@example.com") do |user|
       user.password = SecureRandom.urlsafe_base64

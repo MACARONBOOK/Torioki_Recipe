@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :edit, :admins]
   before_action :set_user, except: [:index, :admins]
-  before_action :correct_user, only: [:edit, :update, :show]
+  before_action :correct_user, only: [:edit, :update]
 
   def admins
     redirect_to new_admin_registration_path
@@ -13,6 +13,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
     @recipes = @user.recipes.page(params[:page]).per(4)
   end
 
@@ -41,6 +42,6 @@ class Admin::UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to edit_admin_user_path unless @user == current_user
+    redirect_to admin_user_path unless @user != current_user
   end
 end

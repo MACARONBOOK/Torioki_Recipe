@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'homes/unsubscribe'
+    get 'homes/withdraw'
+  end
   #新規登録・ログイン
   namespace :public do
     get 'bookmarks/show'
@@ -53,7 +57,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'admin/users#index'
-    # get '/users/index' => "admin/users#index"
     resources :users, except: [:new, :create]
   end
 
