@@ -9,6 +9,7 @@ class Public::BookmarksController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @bookmark = @recipe.bookmarks.new(user_id: current_user.id)
     @bookmark.save
+    # 通知機能は、利用検討中
     # if notification = Notification.new
     #   notification.create_bookmark_notification(current_user, @recipe.user_id, @recipe.id)
     # else

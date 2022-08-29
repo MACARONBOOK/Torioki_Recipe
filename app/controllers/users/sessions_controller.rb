@@ -35,6 +35,7 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+  # 退会後のログインを阻止
   def reject_inactive_user
     @user = User.find_by(email: params[:user][:email])
     if @user

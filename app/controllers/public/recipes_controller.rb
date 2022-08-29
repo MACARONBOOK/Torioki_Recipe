@@ -54,7 +54,7 @@ class Public::RecipesController < ApplicationController
   end
 
   def update
-    # 入力されたタグを受け取る
+    # 入力されたタグを受け取る(以前に入力していても、更新時が空だと消える)
     tag_list = params[:recipe][:tag_name].split(',')
     @recipe.images.attach(params[:images]) if @recipe.images.blank?
     @recipe.update(recipe_params)
@@ -73,7 +73,7 @@ class Public::RecipesController < ApplicationController
     redirect_to user_path(current_user.id), flash: { notice: "「#{@recipe.title}のレシピを削除しました。」"}
   end
 
-  def search
+  def search　# キーワード検索(recipe内のtitleとintroductionとmaterialでキーワードが合致すれば検索結果が出る)
     if user_signed_in?
       @recipes = @q.result(distinct: true).includes([:bookmarks]).page(params[:page]).per(6)
     else
@@ -82,7 +82,7 @@ class Public::RecipesController < ApplicationController
     @search = params[:q][:title_or_introduction_or_material_cont]
   end
 
-  def tag_search
+  def tag_search　# タグ検索と絞り込み
     @tag = Tag.find(params[:tag_id])
     @recipes = @tag.recipes.includes([:user], [:bookmarks])
   end

@@ -17,6 +17,7 @@ class Admin::UsersController < ApplicationController
     @recipes = @user.recipes.page(params[:page]).per(4)
   end
 
+  # 現在、editとupdateは反映されません
   def edit
     @user = User.find(params[:id])
   end

@@ -51,8 +51,6 @@ Rails.application.routes.draw do
         get 'recipes/:recipe_id/bookmarks' => 'bookmarks#show', as: 'my_bookmarks'
       end
     end
-
-    resources :notifications, only: [:index]
   end
 
   namespace :admin do

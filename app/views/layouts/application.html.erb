@@ -4,6 +4,8 @@
     <title>Torioki_Recipe</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <!-- レスポンシブ対応 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--CSSを読み込む-->
@@ -23,6 +25,7 @@
       <div class="nav-trigger"></div>
         <%= render 'public/shared/header' %>
 
+          <!-- 通知メッセージ-->
           <div class = "notifications">
             <% if flash[:notice] %>
               <p class = "notice"><%= flash[:notice] %></p>

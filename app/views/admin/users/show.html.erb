@@ -2,7 +2,7 @@
   <% if @user == current_user %>
      <div class = "title text-center">マイページ</div>
   <% else %>
-    <div class = "title text-center"><%= @user.nickname %>さんのマイページ</div>
+    <div class = "title text-center"><%= @user.nickname %>さんのユーザー情報</div>
   <% end %>
 
   <div class = "card">
@@ -14,8 +14,8 @@
        <p></p>
     </div>
     <div>
-      <div class = "py-2">
-        <%= link_to "プロフィールを編集する", edit_admin_user_path , class:"btn btn-outline-secondary btn-block"%>
+      <div class = "py-2"> <!-- 現在は、編集不可 -->
+        <%#= link_to "プロフィールを編集する", edit_admin_user_path , class:"btn btn-outline-secondary btn-block"%>
       </div>
     </div>
 

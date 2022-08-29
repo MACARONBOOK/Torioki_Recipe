@@ -8,7 +8,6 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
-    # redirect_to request.referer if current_user.id == User.guest.id
     if @user == current_user
         render 'edit'
     else
@@ -17,7 +16,7 @@ class Public::UsersController < ApplicationController
   end
 
   def update
-#   順番を変えた
+    # 順番を変えた(ActiveStorageの画像が反映されるよう)
     @user.image.attach(account_update_params[:image])
     yield @user if block_given?
     @user = User.find(params[:id])
@@ -31,7 +30,7 @@ class Public::UsersController < ApplicationController
 
   def bookmarks
     @user = User.find(params[:id])
-    # このユーザーがしたいいね　そしてそのpost_id
+    # ユーザーがしたブックマークとrecipe_id
     bookmarks = Bookmark.where(user_id: @user.id).pluck(:recipe_id)
     @bookmark_recipes = Recipe.order('id DESC').find(bookmarks)
   end
