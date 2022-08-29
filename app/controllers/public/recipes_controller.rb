@@ -73,7 +73,8 @@ class Public::RecipesController < ApplicationController
     redirect_to user_path(current_user.id), flash: { notice: "「#{@recipe.title}のレシピを削除しました。」"}
   end
 
-  def search　# キーワード検索(recipe内のtitleとintroductionとmaterialでキーワードが合致すれば検索結果が出る)
+  def search
+    # キーワード検索(recipe内のtitleとintroductionとmaterialでキーワードが合致すれば検索結果が出る)
     if user_signed_in?
       @recipes = @q.result(distinct: true).includes([:bookmarks]).page(params[:page]).per(6)
     else
@@ -82,7 +83,8 @@ class Public::RecipesController < ApplicationController
     @search = params[:q][:title_or_introduction_or_material_cont]
   end
 
-  def tag_search　# タグ検索と絞り込み
+  def tag_search
+    # タグ検索と絞り込み
     @tag = Tag.find(params[:tag_id])
     @recipes = @tag.recipes.includes([:user], [:bookmarks])
   end

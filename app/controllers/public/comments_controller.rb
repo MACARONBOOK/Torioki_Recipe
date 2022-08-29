@@ -7,8 +7,8 @@ class Public::CommentsController < ApplicationController
     @comment.recipe_id = @recipe.id
     if @comment.save
       @comment = Comment.new
-      notification = Notification.new
-      notification.create_comment_notification(current_user, @comment, @recipe.user.id, @recipe.id)
+      # notification = Notification.new
+      # notification.create_comment_notification(current_user, @comment, @recipe.user.id, @recipe.id)
       # redirect_to @comment.recipe
     else
       redirect_to request.referer
