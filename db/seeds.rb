@@ -34,7 +34,8 @@ User.create!(
   nickname: 'yomi',
   email: 'yomi@gmail.com',
   password: 'ay080bvD',
-  introduction: '夜食を作る事が多いので、低カロリーなレシピを知りたいです。'
+  introduction: '夜食を作る事が多いので、低カロリーなレシピを知りたいです。',
+  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/yomi.png")),filename: 'yomi.png')
 )
 
 User.create!(
@@ -54,6 +55,16 @@ User.create!(
   introduction: '名前通り、食べるのが専門。簡単に作れるアレンジレシピを教えてほしいです。',
   image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/mogu.png")),filename: 'mogu.png')
 )
+
+User.create!(
+  name: 'たまき',
+  nickname: 'ぷりん',
+  email: 'tamaki@gmail.com',
+  password: 'hG589Etee3x',
+  introduction: '一番好きなんは、ぷりん。うまそうな料理のレシピ知りてぇです。',
+  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/tamaki.png")),filename: 'tamaki.png')
+)
+
 
 Tag.create!(
   name: "パスタ"
@@ -122,7 +133,7 @@ Recipe.create!(
       image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/curry-rice.jpg")),filename: 'curry-rice.jpg')
     },
     {
-      user_id: 3,
+      user_id: 1,
       title: "むき身で簡単！あさりご飯",
       introduction: "缶詰のあさりのむき身で、下処理をせずに簡単にアサリご飯が作れます。",
       material: "米……2合、あさり水煮缶……2缶、しょうが……1片、a. 酒…大さじ1杯、a. みりん…大さじ1杯、a. しょうゆ…大さじ1杯、a. 塩…ひとつまみ、小口ねぎ……適量",
@@ -133,12 +144,12 @@ Recipe.create!(
     },
     {
       user_id: 3,
-      title:"手作りSOYバー",
-      introduction:"筋肉作りにも美容にも、オススメの糖質オフおやつ。砂糖の代わりに、『ラカントS』を使い、カロリーを抑えました。",
-      material:"[8本分]大豆粉…80g、胡桃…20g、カシューナッツ…20g、アーモンドプードル…20g、ココナッツパウダー…10g、蜂蜜…20g、ラカントS…30g、豆乳…60g、バター…30g、塩…1g",
-      amount:"",
-      flow:"①大豆粉はふるっておく。胡桃とカシューナッツを細かくする(袋に入れてめん棒などで叩くと簡単です)。②オーブンを予熱する(170度)。ボウルに全材料を入れてヘラでよく混ぜる(こねてまとめる感じ)④まとまってきたら一つにして、高さ1.5cmの長方形にしてラップをし、冷蔵庫で30分寝かす⑤8等分にカットする⑥予熱したオーブンで10～15分焼く⑦焼けたら、直で触らずそのまま冷ます(熱いうちだと崩れやすいので)。",
-      advise:"ポロポロと崩れやすいので、生地をまとめる時と冷ます時は注意しましょう。",
+      title: "手作りSOYバー",
+      introduction: "筋肉作りにも美容にも、オススメの糖質オフおやつ。砂糖の代わりに、『ラカントS』を使い、カロリーを抑えました。",
+      material: "[8本分]大豆粉…80g、胡桃…20g、カシューナッツ…20g、アーモンドプードル…20g、ココナッツパウダー…10g、蜂蜜…20g、ラカントS…30g、豆乳…60g、バター…30g、塩…1g",
+      amount: "",
+      flow: "①大豆粉はふるっておく。胡桃とカシューナッツを細かくする(袋に入れてめん棒などで叩くと簡単です)。②オーブンを予熱する(170度)。ボウルに全材料を入れてヘラでよく混ぜる(こねてまとめる感じ)④まとまってきたら一つにして、高さ1.5cmの長方形にしてラップをし、冷蔵庫で30分寝かす⑤8等分にカットする⑥予熱したオーブンで10～15分焼く⑦焼けたら、直で触らずそのまま冷ます(熱いうちだと崩れやすいので)。",
+      advise: "ポロポロと崩れやすいので、生地をまとめる時と冷ます時は注意しましょう。",
       image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/health-bar.jpg")),filename: 'health-bar.jpg')
     }
   ]
