@@ -2,7 +2,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipe_tag_relations, dependent: :delete_all, validate: false
   has_many :tags, through: :recipe_tag_relations
-  has_many :notifications, dependent: :destroy
+  # has_many :notifications, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
 
