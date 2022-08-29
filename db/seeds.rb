@@ -62,7 +62,6 @@ User.create!(
   email: 'tamaki@gmail.com',
   password: 'hG589Etee3x',
   introduction: '一番好きなんは、ぷりん。うまそうな料理のレシピ知りてぇです。',
-  image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/tamaki.png")),filename: 'tamaki.png')
 )
 
 
@@ -143,7 +142,7 @@ Recipe.create!(
       image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/assets/images/rice2.jpg")),filename: 'rice2.jpg')
     },
     {
-      user_id: 3,
+      user_id: 1,
       title: "手作りSOYバー",
       introduction: "筋肉作りにも美容にも、オススメの糖質オフおやつ。砂糖の代わりに、『ラカントS』を使い、カロリーを抑えました。",
       material: "[8本分]大豆粉…80g、胡桃…20g、カシューナッツ…20g、アーモンドプードル…20g、ココナッツパウダー…10g、蜂蜜…20g、ラカントS…30g、豆乳…60g、バター…30g、塩…1g",
