@@ -60,7 +60,7 @@ User.create!(
   name: 'たまき',
   nickname: 'ぷりん',
   email: 'tamaki@gmail.com',
-  password: 'hG589Etee3x',
+  password: 'b6fIIU3g79',
   introduction: '一番好きなんは、ぷりん。うまそうな料理のレシピ知りてぇです。',
 )
 
