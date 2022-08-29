@@ -10,8 +10,8 @@ class User < ApplicationRecord
   has_many :bookmark_recipes, through: :bookmarks, source: :recipe
   has_many :comments, dependent: :destroy
    # 通知 コメントする側・される側(現在、利用検討中)
-  # has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
-  # has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 
 
   # プロフィール画像
