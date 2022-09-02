@@ -70,3 +70,7 @@ Torioki_Recipeは料理のレシピを通してお気に入りの料理やノウ
 ## 使用素材
 - [pexel](https://www.pexels.com/ja-jp/)
 - [canva](https://www.canva.com/)
+- [unDRAW](https://undraw.co/)
+
+## 制作の記録
+- [スクールの発表スライド](https://docs.google.com/presentation/d/1EkfBcAUMNnDPgaRKach1_kmOhDON1AYuHhHrUleNDt8/edit#slide=id.gc6f80d1ff_0_0)
